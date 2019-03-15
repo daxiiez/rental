@@ -1,5 +1,8 @@
 <?php
 include '__connect.php';
+$_SESSION['currentMonth'] = intval(date("m"));
+$_SESSION['currentYear'] = intval(date("Y"));
+$_SESSION['currentDate'] = intval(date("d"));
 ?>
 
 
@@ -12,118 +15,60 @@ include '__connect.php';
     </style>
 </head>
 <body>
+
+
+
+
+
 <?php
-$msg = "";
-if (isset($_POST['username'])) {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-    $isAdmmin = $_POST['isAdmin'];
-    $sql = '';
-    if ($isAdmmin == 'Y') {
-        $sql = "SELECT u.*,t.full_position FROM USER u  inner join usertype t on t.position = u.position WHERE username='$username' AND password='$password'";
-        $_SESSION['table'] = 'user';
-    } elseif ($isAdmmin == 'N') {
-        $sql = "SELECT * FROM student WHERE username='$username' AND password='$password'";
-        $_SESSION['table'] = 'student';
-    }
-
-    $result = mysqli_query($conn, $sql);
-    $row = mysqli_fetch_assoc($result);
-
-    if ($row) {
-        $_SESSION['username'] = $row['username'];
-        $_SESSION['name'] = $row['name'];
-        $_SESSION['type'] = $isAdmmin;
-    } else {
-        $msg = "<span class='text-danger'><i class='fa fa-times'></i> เข้าสู่ระบบไม่สำเร็จ กรุณาตรวจสอบ username/password อีกครั้ง</span>";
-    }
-    if ($isAdmmin == 'N') {
-        $_SESSION['userType'] = 'N';
-        $_SESSION['department'] = $row['department'];
-        $_SESSION['teacher_name'] = $row['teacher_name'];
-        $_SESSION['parent_tel'] = $row['parent_tel'];
-        $_SESSION['parent_name'] = $row['parent_name'];
-        $_SESSION['picture'] = $row['picture'];
-        $_SESSION['ID'] = $row['ID'];
-        $_SESSION['code'] = $row['code'];
-        $_SESSION['tel'] = $row['tel'];
-        $_SESSION['picture'] = $row['picture'];
-        $_SESSION['address'] = $row['address'];
-        $_SESSION['level'] = $row['level'];
-        $_SESSION['major'] = $row['major'];
-        $_SESSION['sex'] = $row['sex'];
-        $_SESSION['birthdate'] = $row['birthdate'];
-        $sql = "SELECT * FROM booking_detail WHERE student_code ='". $_SESSION['code']."'";
-        $query = mysqli_query($conn,$sql);
-        $row_cnt = $query->num_rows;
-        if($row_cnt>0){
-            $_SESSION['book_status'] = 'Y';
-        }else{
-            $_SESSION['book_status'] = 'N';
-        }
-    } elseif ($isAdmmin = 'Y') {
-        $_SESSION['tel'] = $row['tel'];
-        $_SESSION['address'] = $row['address'];
-        $_SESSION['position'] = $row['position'];
-        $_SESSION['full_position'] = $row['full_position'];
-        $_SESSION['book_status'] = 'N';
-        $_SESSION['userType'] =  $row['position'];
-    }
-
-}
-if (isset($_SESSION['username'])) {
-    header("location: _home.php");
-}
+include '__navbar_admin.php';
 ?>
-<script>
-    $(document).ready(() => {
-        $("#isAdmin").val('N');
-    });
 
-    function checkIsAdmin() {
-        let isAdmin = $("#adminFlag")[0].checked;
-        if (isAdmin) {
-            $("#isAdmin").val('Y');
-        } else {
-            $("#isAdmin").val('N');
-        }
-        console.log($("#isAdmin").val());
-    }
-</script>
 
-<div class="container" align="center" style="padding-top: 50px;">
-    <div class="card" style="width: 500px;">
-        <form method="post" action="index.php">
-            <img class="card-img-top" src="img/KU.png"  alt="Card image cap">
-            <div class="card-footer">
-                <div class="form-group" align="left">
-
-                    <label> Username</label>
-                    <input type="text" name="username" class="form-control" placeholder="" aria-label=""
-                           aria-describedby="basic-addon1">
-                </div>
-                <br>
-                <div class="form-group" align="left">
-                    <label> Password</label>
-                    <input type="password" name="password" class="form-control" placeholder="" aria-label=""
-                           aria-describedby="basic-addon1">
-                    <?php echo $msg; ?>
-                </div>
-                <hr>
-                <div align="right">
-                    <input name="isAdmin" id="isAdmin" type="hidden">
-                    <div
-                            class="custom-control custom-checkbox" style="margin-top: 5px;">
-                        <input type="checkbox" class="custom-control-input" id="adminFlag"
-                               onclick="checkIsAdmin()">
-                        <label class="custom-control-label" for="adminFlag"> ผู้ดูแลระบบ/รักษาความปลอดภัย</label>
-                    </div>
-                </div>
-                <br>
-                <button class="btn btn-info" type="submit"><i class="fa fa-sign-in"></i> Log in</button>
-            </div>
-        </form>
+<div class="container" style="margin-top:30px">
+    <div class="row">
+        <div class="col-sm-4">
+            <h2>About Me</h2>
+            <h5>Photo of me:</h5>
+            <div class="fakeimg">Fake Image</div>
+            <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
+            <h3>Some Links</h3>
+            <p>Lorem ipsum dolor sit ame.</p>
+            <ul class="nav nav-pills flex-column">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Active</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#">Disabled</a>
+                </li>
+            </ul>
+            <hr class="d-sm-none">
+        </div>
+        <div class="col-sm-8">
+            <h2>TITLE HEADING</h2>
+            <h5>Title description, Dec 7, 2017</h5>
+            <div class="fakeimg">Fake Image</div>
+            <p>Some text..</p>
+            <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+            <br>
+            <h2>TITLE HEADING</h2>
+            <h5>Title description, Sep 2, 2017</h5>
+            <div class="fakeimg">Fake Image</div>
+            <p>Some text..</p>
+            <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+        </div>
     </div>
 </div>
+
+<div class="jumbotron text-center" style="margin-bottom:0">
+    <p>Footer</p>
+</div>
+
 </body>
 </html>
