@@ -44,7 +44,7 @@ if (isset($_POST['insertRoom'])) {
 }
 if ($isUpdate == 'Y') {
     $sql = "select r.*,i.img from room r 
-            inner join room_img i on i.room_id = r.room_id and i.main_flag='Y' 
+            left join room_img i on i.room_id = r.room_id and i.main_flag='Y' 
             where  r.room_id = '$roomNo'";
     $query = mysqli_query($conn, $sql);
     $roomDetail = mysqli_fetch_assoc($query);
@@ -64,9 +64,9 @@ if ($isUpdate == 'Y') {
 include '__navbar_admin.php';
 
 $sql = "SELECT r.*,i.img,s.name,t.status_desc FROM ROOM r 
-INNER JOIN room_size s ON r.size = s.size_id
-INNER JOIN room_status t ON t.status = r.status
- INNER JOIN room_img i ON i.room_id = r.room_id and i.main_flag = 'Y' where 1=1 ";
+left JOIN room_size s ON r.size = s.size_id
+left JOIN room_status t ON t.status = r.status
+ left JOIN room_img i ON i.room_id = r.room_id and i.main_flag = 'Y' where 1=1 ";
 $size  = 'A';
 $cost = 0;
 if (isset($_GET['searchRoom'])) {
@@ -78,7 +78,7 @@ if (isset($_GET['searchRoom'])) {
     if ($cost == 1) {
         $sql = $sql . " AND cost between 100 and 299 ";
     } else if ($cost == 3) {
-        $sql = $sql . " AND cost between 300 and 499 ";
+        $sql = $sql . " AND cost between 300 and 500 ";
     } else if ($cost == 5) {
         $sql = $sql . " AND cost >500 ";
     }
@@ -161,7 +161,7 @@ if (isset($_GET['searchRoom'])) {
                         <div align="right">
                             <div class="btn-group">
                                 <button class="btn btn-outline-primary" name="searchRoom" type="submit"> ค้นหา</button>
-                                <a class="btn btn-outline-info" href="_room-master.php?roomDetail=1"> เพิ่มห้องพัก</a>
+                                <a class="btn btn-outline-info" href="_room-master.php?roomDetail=1&&insertRoom=1"> เพิ่มห้องพัก</a>
                             </div>
                         </div>
                     </div>

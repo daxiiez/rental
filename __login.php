@@ -1,17 +1,6 @@
 <?php
 include '__connect.php';
 ?>
-
-
-<!DOCTYPE html>
-<html>
-
-<head>
-    <?php include '__header.php'; ?>
-    <style>
-    </style>
-</head>
-<body>
 <?php
 $msg = "";
 if (isset($_POST['username'])) {
@@ -21,38 +10,64 @@ if (isset($_POST['username'])) {
 
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($result);
-
     if ($row) {
         $_SESSION['username'] = $row['username'];
-        $_SESSION['name'] = $row['name'];
+        $_SESSION['type'] = $row['type'];
+        echo "<script> alert('เข้าสู่ระบบสำเร็จ'); window.location='index.php'; </script>";
     } else {
         $msg = "<span class='text-danger'><i class='fa fa-times'></i> เข้าสู่ระบบไม่สำเร็จ กรุณาตรวจสอบ username/password อีกครั้ง</span>";
     }
 
 }
 ?>
-<div class="container" align="center" style="padding-top: 50px;">
-    <div class="card" style="width: 500px;">
-        <form method="post" action="index.php">
-            <img class="card-img-top" src="img/KU.png" alt="Card image cap">
-            <div class="card-footer">
-                <div class="form-group" align="left">
+<!Document>
+<html>
 
-                    <label> Username</label>
-                    <input type="text" name="username" class="form-control" placeholder="" aria-label=""
-                           aria-describedby="basic-addon1">
-                </div>
-                <br>
-                <div class="form-group" align="left">
-                    <label> Password</label>
-                    <input type="password" name="password" class="form-control" placeholder="" aria-label=""
-                           aria-describedby="basic-addon1">
-                    <?php echo $msg; ?>
-                </div>
-                <br>
-                <button class="btn btn-info" type="submit"><i class="fa fa-sign-in"></i> เข้าสู่ระบบ</button>
+<head>
+    <?php include '__header.php'; ?>
+    <script>
+
+    </script>
+</head>
+<body>
+<?php
+include '__navbar_admin.php';
+?>
+
+<div class="container" style="margin-top: 10px; margin-bottom: 150px;">
+    <div class="card">
+        <div class="card-header">
+            <nav aria-label="breadcrumb  bg-dark">
+                <h5 class="font-weight-bold">เข้าสู่ระบบ</h5>
+            </nav>
+        </div>
+        <div class="card-body">
+            <div class="container">
+                <form method="post">
+                    <!--            <img class="card-img-top" src="img/KU.png" alt="Card image cap">-->
+                    <div class="card-body">
+                        <div class="form-group" align="left">
+
+                            <label class="font-weight-bold"> ชื่อผู้ใช้</label>
+                            <input type="text" name="username" class="form-control" placeholder="" aria-label=""
+                                   aria-describedby="basic-addon1">
+                        </div>
+                        <br>
+                        <div class="form-group" align="left">
+                            <label  class="font-weight-bold"> รหัสผ่าน</label>
+                            <input type="password" name="password" class="form-control" placeholder="" aria-label=""
+                                   aria-describedby="basic-addon1">
+                            <?php echo $msg; ?>
+                        </div>
+                        <br>
+                        <button class="btn btn-info" type="submit"><i class="fa fa-sign-in"></i> เข้าสู่ระบบ</button>
+                    </div>
+                </form>
             </div>
-        </form>
+        </div>
+        <div class="footer bg-warning text-white">
+
+        </div>
     </div>
 </div>
 </body>

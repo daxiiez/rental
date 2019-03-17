@@ -1264,7 +1264,7 @@ room_img_id</ColNames>
     </column>
     <column id="306" parent="262" name="tel">
       <Position>5</Position>
-      <DataType>varchar(10)|0s</DataType>
+      <DataType>varchar(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>

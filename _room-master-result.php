@@ -21,14 +21,36 @@ $query = mysqli_query($conn, $sql);
                         <div class="card-body" style="background: #cce5ff;">
                             <div class="row">
                                 <div class="col-8">
-                                    <a class="btn-block btn btn-info"
-                                       href="_room-master.php?roomDetail=1&roomNo=<?php echo $temp['room_id']; ?>"><i
-                                                class="fa fa-edit"></i>
-                                        แก้ไขข้อมูล
-                                    </a>
-                                    <img src="data:image/jpeg;base64,<?php echo base64_encode($temp['img']); ?>"
-                                         style="width: 100%;">
-                                    <button class="btn-block btn btn-primary" data-toggle="modal" data-target="#imageModal"><i class="fa fa-image"></i>
+                                    <?php
+                                    if (isset($_SESSION['username'])) {
+                                        if ($_SESSION['type'] == 'A' || $_SESSION['type'] == 'C') {
+                                            ?>
+                                            <a class="btn-block btn btn-info"
+                                               href="_room-master.php?roomDetail=1&roomNo=<?php echo $temp['room_id']; ?>">
+                                                <i class="fa fa-edit"></i>
+                                                แก้ไขข้อมูล
+                                            </a>
+                                            <?php
+                                        }
+
+                                    }
+                                    ?>
+                                    <?php if (isset($temp['img'])) {
+                                        ?>
+                                        <img src="data:image/jpeg;base64,<?php echo base64_encode($temp['img']); ?>"
+                                             style="width: 100%;">
+                                        <?php
+
+                                    } else {
+                                        ?>
+                                        <img src="img/room.png" style="width: 100%; height: 30%">
+                                        <?php
+                                    }
+                                    ?>
+                                    <button class="btn-block btn btn-primary" data-toggle="modal"
+                                            data-target="#imageModal"
+                                            onclick="getImage(<?php echo $temp['room_id'] ?>)"><i
+                                                class="fa fa-image"></i>
                                         ดูรูปภาพเพิ่มเติม
                                     </button>
                                 </div>
@@ -45,9 +67,16 @@ $query = mysqli_query($conn, $sql);
                                                         class="font-italic text-right"> <?php echo $temp['status_desc']; ?> </span>
                                             </li>
                                             <li class="list-group-item">
-                                                <a href="_calendar.php?selectedRoom=<?php echo $temp['room_id']; ?>" class="btn btn-sm btn-block btn-outline-primary"><i
-                                                            class="fa fa-bookmark" ></i> จอง
-                                                </a>
+                                                <?php
+                                                 if($temp['status']=='A'){
+                                                     ?>
+                                                     <a href="_calendar.php?selectedRoom=<?php echo $temp['room_id']; ?>"
+                                                        class="btn btn-sm btn-block btn-outline-primary"><i
+                                                                 class="fa fa-bookmark"></i> จอง
+                                                     </a>
+                                                <?php
+                                                 }
+                                                ?>
                                             </li>
                                         </ul>
                                     </div>
@@ -71,7 +100,50 @@ $query = mysqli_query($conn, $sql);
     </div>
 </div>
 
+<script>
 
+    function getImage(roomId) {
+        $.get("SQL_Select/getImageByRoomId.php?roomId=" + roomId, (r) => {
+            let content = JSON.parse(r);
+            let html = '                <div id="demo" class="carousel slide" data-ride="carousel">' +
+                '                    <ul class="carousel-indicators">'
+            content.forEach((f, i) => {
+                if (i == 0) {
+                    html += '<li data-target="#demo" data-slide-to="' + i + '" class="active"></li>'
+                } else {
+                    html += '<li data-target="#demo" data-slide-to="' + i + '" ></li>'
+                }
+            })
+            html += '</ul>' +
+                '                    <div class="carousel-inner">';
+            content.forEach((f, i) => {
+                if (i == 0) {
+                    html += '<div class="carousel-item active">'
+                } else {
+                    html += '<div class="carousel-item">'
+                }
+                html += '                            <img src="data:image/jpeg;base64,' + f.room_img + '"' +
+                    '                                 alt="' + roomId + '" width="1100" height="500">' +
+                    '                            <div class="carousel-caption">' +
+                    '                                <h3>ห้อง ' + roomId + '</h3>' +
+                    '                                <p>' + f.info + '</p>' +
+                    '                            </div>' +
+                    '                        </div>'
+            })
+            html += ' </div>' +
+                '                    <a class="carousel-control-prev" href="#demo" data-slide="prev">' +
+                '                        <span class="carousel-control-prev-icon"></span>' +
+                '                    </a>' +
+                '                    <a class="carousel-control-next" href="#demo" data-slide="next">' +
+                '                        <span class="carousel-control-next-icon"></span>' +
+                '                    </a>' +
+                '                </div>';
+
+            $('#imgArea').html(html);
+
+        });
+    }
+</script>
 
 <div class="modal fade" tabindex="-1" role="dialog" id="imageModal"
      aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -83,43 +155,7 @@ $query = mysqli_query($conn, $sql);
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
-                <div id="demo" class="carousel slide" data-ride="carousel">
-                    <ul class="carousel-indicators">
-                        <li data-target="#demo" data-slide-to="0" class="active"></li>
-                        <li data-target="#demo" data-slide-to="1"></li>
-                        <li data-target="#demo" data-slide-to="2"></li>
-                    </ul>
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="la.jpg" alt="Los Angeles" width="1100" height="500">
-                            <div class="carousel-caption">
-                                <h3>Los Angeles</h3>
-                                <p>We had such a great time in LA!</p>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <img src="chicago.jpg" alt="Chicago" width="1100" height="500">
-                            <div class="carousel-caption">
-                                <h3>Chicago</h3>
-                                <p>Thank you, Chicago!</p>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <img src="ny.jpg" alt="New York" width="1100" height="500">
-                            <div class="carousel-caption">
-                                <h3>New York</h3>
-                                <p>We love the Big Apple!</p>
-                            </div>
-                        </div>
-                    </div>
-                    <a class="carousel-control-prev" href="#demo" data-slide="prev">
-                        <span class="carousel-control-prev-icon"></span>
-                    </a>
-                    <a class="carousel-control-next" href="#demo" data-slide="next">
-                        <span class="carousel-control-next-icon"></span>
-                    </a>
-                </div>
+            <div class="modal-body" id="imgArea">
             </div>
             <div class="modal-footer"></div>
         </div>
