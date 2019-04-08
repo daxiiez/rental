@@ -3,16 +3,22 @@ include '__connect.php';
 ?>
 <?php
 $msg = "";
+
 if (isset($_POST['username'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
     $sql = "SELECT * FROM user WHERE username='$username' AND password='$password'";
-
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($result);
     if ($row) {
+        $username =  $row['username'];
         $_SESSION['username'] = $row['username'];
         $_SESSION['type'] = $row['type'];
+        $sql = "SELECT * FROM rental_detail WHERE username ='$username' order by rental_id desc";
+        $query = mysqli_query($conn,$sql);
+        $rental = mysqli_fetch_array($query);
+        $_SESSION['reserveStatus'] = $rental['status'];
+        echo $_SESSION['reserveStatus'];
         echo "<script> alert('เข้าสู่ระบบสำเร็จ'); window.location='index.php'; </script>";
     } else {
         $msg = "<span class='text-danger'><i class='fa fa-times'></i> เข้าสู่ระบบไม่สำเร็จ กรุณาตรวจสอบ username/password อีกครั้ง</span>";
@@ -44,7 +50,6 @@ include '__navbar_admin.php';
         <div class="card-body">
             <div class="container">
                 <form method="post">
-                    <!--            <img class="card-img-top" src="img/KU.png" alt="Card image cap">-->
                     <div class="card-body">
                         <div class="form-group" align="left">
 

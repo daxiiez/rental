@@ -3,7 +3,6 @@ include '__connect.php';
 $_SESSION['currentMonth'] = intval(date("m"));
 $_SESSION['currentYear'] = intval(date("Y"));
 $_SESSION['currentDate'] = intval(date("d"));
-
 ?>
 
 
@@ -15,10 +14,7 @@ $_SESSION['currentDate'] = intval(date("d"));
     <style>
     </style>
 </head>
-<body>
-
-
-
+<body class="bg-light">
 
 
 <?php
@@ -29,44 +25,51 @@ include '__navbar_admin.php';
 <div class="container" style="margin-top:30px">
     <div class="row">
         <div class="col-sm-4">
-            <h2>บริการของเรา</h2>
-            <h5>อาหารและเครื่องดื่ม</h5>
-            <ul>
-                <li>เครื่องดื่มสมุนไพร</li>
-                <li>อาหารพื้นเมือง</li>
-            </ul>
-            <h3>สถานที่ท่องเที่ยวใกล้เคียง</h3>
-            <p>สถานที่พักของเราใกล้สถานที่ท่องเที่ยวที่น่าสนใจ</p>
-            <ul class="nav nav-pills flex-column">
-                <li class="nav-item">
-                    <a class="nav-link " href="#">เกาะขาม</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">วัดใหญ่ชัยมงคล</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">วันป่า</a>
-                </li>
-            </ul>
-            <hr class="d-sm-none">
+            <div class="card bg-info text-white">
+                <div class="card-body">
+                    <h2 class="font-weight-bold">บริการของเรา</h2>
+                    <h5 class="font-weight-bold">อาหารและเครื่องดื่ม</h5>
+                    <ul>
+                        <li>เครื่องดื่มสมุนไพร</li>
+                        <li>อาหารพื้นเมือง</li>
+                    </ul>
+                    <hr>
+                    <h3 class="font-weight-bold">ห้องพัก</h3>
+                    <p>เตรียมไว้สำหรับผู้ที่มากับครอบครัว เพื่อน หรือ คนรัก</p>
+                    <ul>
+                        <li>Size เล็ก 1-2 คน</li>
+                        <li>Size กลาง 3-4 คน</li>
+                        <li>Size ใหญ่ 4-5 คน</li>
+                    </ul>
+                    <hr class="d-sm-none">
+                </div>
+            </div>
         </div>
         <div class="col-sm-8">
-            <h2>ประกาศ1</h2>
-            <h5>โดย admin, Dec 7, 2018</h5>
-            <p>ประกาศห้องใหม่</p>
-            <p>เพิ่มห้อง 129 ดูรายละเอียดเพิ่มเติม <a href="#">คลิก</a></p>
-            <br>
-
-            <h2>ประกาศเปิดใช้ระบบ</h2>
-            <h5>โดย admin, Jan 7, 2019</h5>
-            <p>ระบบพร้อมใช้งานเร็วๆนี้...</p>
-            <p>พร้อม function อำนวยความสะดวกมากมาย...</p>
+            <?php
+            $sql = "SELECT i.*,u.*,DATE_FORMAT(i.info_date,'%d/%m/%Y') as info_date_df FROM information i inner join user u on i.info_owner = u.username ORDER BY info_id DESC LIMIT 2";
+            $query = mysqli_query($conn,$sql);
+            while($temp = mysqli_fetch_array($query,MYSQLI_ASSOC)){
+                ?>
+                <div class="card bg-secondary text-white">
+                    <div class="card-body ">
+                        <h2><?php echo $temp['info_name']?></h2>
+                        <h5>โดย <?php echo $temp['name']?> วันที่ <?php echo $temp['info_date_df']?></h5>
+                        <div class="container">
+                            <?php echo base64_decode($temp['info_content']); ?>
+                        </div>
+                    </div>
+                </div>
+                <br>
+            <?php
+            }
+            ?>
         </div>
     </div>
 </div>
 
-<div class="jumbotron text-center" style="margin-bottom:0">
-    <p>Footer</p>
+<div class="text-center bg-warning" style="margin-top:100px;">
+    <span class="badge badge-success">ติดต่อ : 084-44514725</span>
 </div>
 
 </body>

@@ -1,6 +1,10 @@
-<div class="jumbotron text-center" style="margin-bottom:0">
-    <h1>Rose Resort</h1>
-    <p>ติดต่อ : 084-44514725</p>
+<style>
+    .bg-rose {
+        background-image: url("img/bg.jpg");
+    }
+</style>
+<div class="jumbotron text-center bg-rose" style="margin-bottom:0; ">
+    <h1><img src="img/rose.png" width="400px;"></h1>
 </div>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-secondary ">
@@ -15,7 +19,19 @@
             <li class="nav-item">
                 <a class="nav-link" href="_room-master.php">ห้องพัก</a>
             </li>
+            <?php
+            if (isset($_SESSION['type'])) {
+                if ($_SESSION['type'] == 'A') {
+                    ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="_reserve_list.php">รายการจอง</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="_information.php">ประชาสัมพันธ์</a>
+                    </li>
 
+                <?php }
+            } ?>
         </ul>
         <ul class="navbar-nav">
             <?php
@@ -30,8 +46,19 @@
                         ?>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-
-
+                        <?php
+                        if ($_SESSION['reserveStatus'] == 'N' || $_SESSION['reserveStatus'] == 'W') {
+                            ?>
+                            <a class="dropdown-item" href="_reserve.php">
+                                <i class="fa fa-exclamation-triangle"></i> ชำระรายการจอง</a>
+                            <?php
+                        }elseif( $_SESSION['reserveStatus'] == 'S'){
+                            ?>
+                            <a class="dropdown-item" href="_reserve.php">
+                                <i class="fa fa-list"></i> รายละเอียดการเข้าพัก</a>
+                            <?php
+                        }
+                        ?>
                         <a class="dropdown-item" href="__register.php?viewProfile=1">
                             <i class="fa fa-user-circle-o"></i> Profile</a>
                     </div>
@@ -56,8 +83,6 @@
                 <?php
             }
             ?>
-
-
         </ul>
     </div>
 </nav>

@@ -27,6 +27,15 @@
         src: url("font/FC Lamoon/FC Lamoon Bold ver 1.00.ttf");
     }
 
+     @font-face {
+         font-family: applyFont;
+         src: url('font/EkkamaiStandard-Light.ttf');
+     }
+
+     * {
+         font-family: applyFont;
+     }
+
     .overlay {
         position: absolute;
         top: 0;

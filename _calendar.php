@@ -1,6 +1,5 @@
 <?php
 include '__connect.php';
-include '__checkSession.php';
 ?>
 <!Document>
 <html>
@@ -306,7 +305,6 @@ if (isset($_GET['selectedYear'])) {
                                                 if ($i == 1) {
                                                     break;
                                                 }
-                                                //} elseif ($i == 1 ) {
                                             } elseif ($i == 1 || ($i == $totalDate && $j > $day)) {
                                                 echo '<td class="border-bottom"></td>';
                                             }
@@ -331,10 +329,9 @@ if (isset($_GET['selectedYear'])) {
                 <input type="hidden" name="roomId" value="<?php echo $selectedRoom; ?>">
                 <div class="row" style="margin-bottom: 10px;">
                     <?php
-                    if ($_SESSION['type'] != 'M') {
+                    if ($_SESSION['type'] != 'M' && $_SESSION['type']!='') {
                         $sqlUser = "SELECT * FROM user WHERE type='M'";
                         $query = mysqli_query($conn, $sqlUser);
-
                         ?>
                         <div class="col-12">
                             <div class="row">
@@ -434,6 +431,15 @@ if (isset($_GET['selectedYear'])) {
                                             alert("กรุณาเลือกลูกค้าที่จะจอง");
                                         } else if (!saveObj.deposit && isAdmin == 'Y') {
                                             alert("กรุณากรอกจำนวนมัดจำ");
+                                        }else{
+                                            $.post('SQL_Insert/insertRentalDetail.php', saveObj, (r) => {
+                                                if (r) {
+                                                   /* alert("บันทึกข้อมูลสำเร็จ !")
+                                                    location.reload();*/
+                                                   window.location = '_reserve.php';
+                                                   console.log(r);
+                                                }
+                                            })
                                         }
                                     }
                                 </script>

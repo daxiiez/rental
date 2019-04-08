@@ -55,30 +55,20 @@ function convert($num)
     return $returnNumWord . 'บาทถ้วน';
 }
 
-$code = $_GET['code'];
-if ($code == '') {
-    header("Location: _home.php");
-}
 include '__connect.php';
-$sql = "select distinct d.*,
-       s.name,
-       s.department,
-       s.major,
-       s.level,
-       s.tel,
-       r.cost,
-       r.size,
-       t.full_status as tower_type,
-       tower.tower_name
-from booking_detail d
-       inner join student s on s.code = d.student_code
-       inner join status t on t.status = d.type
-       inner join room r on r.room_no = d.room_no
-       inner join tower  on tower.tower_no = d.tower_no
-where d.student_code = '$code' limit 1
-";
-$result = mysqli_query($conn, $sql);
-$detail = mysqli_fetch_assoc($result);
+$rental_id = $_GET['rental_id'];
+$username = $_SESSION['username'];
+
+$sql = "SELECT * from rental_detail where rental_id = '$rental_id'";
+$query = mysqli_query($conn, $sql);
+$rental = mysqli_fetch_assoc($query);
+$status = $rental['status'];
+
+
+$sql = "select * from user where username = '$username'";
+$query = mysqli_query($conn, $sql);
+$profile = mysqli_fetch_assoc($query);
+
 require_once __DIR__ . '/vendor/autoload.php';
 include '__header.php';
 $mpdf = new \Mpdf\Mpdf();
@@ -86,218 +76,129 @@ $mpdf = new \Mpdf\Mpdf();
 ?>
 <html>
 <body style="background: white;">
-<div class="container-fluid" style="margin-top: 20px;">
-    <div class="card">
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <span class="font-weight-bold rounded" style="margin-top: 10px;">ใบนำฝากชำระเงินค่าสินค้าหรือบริการ (Bill Payment Pay-In Slip)</span>
-                </div>
-                <div class="col">
-                    <div class="text-right"><i>สำหรับลูกค้า</i><br>โปรดเรียกเก็บค่าธรรมเนียมจากผุ้ชำระเงิน*</div>
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-                <div class="col">
-                    <div class="row">
-                        <div class="col-2">
-                            <img src="img/KU_TH.png" height="75">
-                        </div>
-                        <div class="col">
-                            มหาวิทยาลัยเกษตร์ วิทยาเขตกำแพงแสน<br>
-                            ที่อยู่เลขที่ 1 หมู่ 6 ต.กำแพงแสน อ.กำแพงแสน จ.นครปฐม 73140<br>
-                            โทรศัทพ์ : 0 3434 1550-3 หรือ 0 2942 8003-19
-                        </div>
+<div class="container-fluid" style="margin-top: 30px;">
+
+    <div class="container" style="margin-top: 10px;">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="font-weight-bold">รายการจอง</h4> <?php echo $rental['rental_id'] ?>
+                <hr>
+                <div class="row">
+                    <div class="col-4">
+                    <span>
+                        <b>จองวันที่</b> : <?php echo $rental['rent_date'] ?>
+                    </span>
+                    </div>
+                    <div class="col-8">
+                        <span>
+                            <b>ห้องที่จอง</b> : <?php echo $rental['room_id'] ?>
+                        </span>
                     </div>
                 </div>
-                <div class="col">
-                    <table class="table table-bordered">
-                        <tr>
-                            <td class="text-right"><b>สาขา/Branch</b>.........................</td>
-                            <td><b>วันที่/Date</b>.........................</td>
-                        </tr>
-                        <tr>
-                            <th class="text-right">ชื่อ-สกุล (Name-Lastname)</th>
-                            <td>
-                                <?php echo $detail['name'] ?>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th class="text-right">เลขประจำตัวนิสิต (Ref.1)</th>
-                            <td>
-                                <?php echo $detail['student_code'] ?>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th class="text-right">เลขตึก/เลขห้อง (Ref.2)</th>
-                            <td>
-                                <?php echo $detail['tower_no'] ?>
-                                <?php echo $detail['room_no'] ?>
-                            </td>
-                        </tr>
-                    </table>
+                <br>
+                <div class="row">
+                    <div class="col-4">
+                    <span>
+                        <b>วันที่ Check In</b> : <?php echo $rental['check_in'] ?>
+                    </span>
+                    </div>
+                    <div class="col-4">
+                        <span>
+                            <b>วันที่ Check Out</b> : <?php echo $rental['check_out'] ?>
+                        </span>
+                    </div>
+                    <div class="col-4">
+                        <span>
+                            <b>รวม(วัน)</b> : <?php echo $rental['rent_days'] ?>
+                        </span>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-4">
+                        <span>
+                            <b>รวมราคา (บาท)</b> : <?php echo $rental['rent_cost'] ?>
+                        </span>
+                    </div>
+                    <div class="col-4">
+                    <span>
+                        <b>มัดจำ (บาท)</b> : <?php echo $rental['deposit'] ?>
+                    </span>
+                    </div>
+                    <div class="col-4">
+                    <span>
+                        <b>คงเหลือ (บาท)</b> : <?php echo $rental['rent_cost'] - $rental['deposit'] ?>
+                    </span>
+                    </div>
+                </div>
+                <br>
+                <hr>
+                <h4 class="font-weight-bold">ข้อมูลผู้จอง</h4>
+                <hr>
+                <div class="row">
+                    <div class="col-4">
+                    <span>
+                        <b>ชื่อ : </b><?php echo $profile['name']; ?>
+                    </span>
+                    </div>
+                    <div class="col-4">
+                    <span>
+                        <b>Line id : </b><?php echo $profile['line_id']; ?>
+                    </span>
+                    </div>
+                    <div class="col-4">
+                    <span>
+                        <b>เบอร์โทรศัพท์ : </b><?php echo $profile['tel']; ?>
+                    </span>
+                    </div>
+                </div>
+
+                <hr>
+                <br>
+
+                <div class="row">
+                    <div class="col-4 mx-auto">
+                        <div align="center">
+                            <img id="img-upload" src="img/scb-logo.jpg" width="200" border="5"></div>
+                    </div>
+
+                    <div class="col-6 mx-auto" align="left">
+                        <p><b>ช่องทางการชำระเงิน</b></p>
+                        <ul>
+                            <li>
+                                <small>เลขบัญชี ธนาคารไทยพานิช 401-990-1486 สาขาตลาดกำแพงแสน</small>
+                            </li>
+                            <li>
+                                <small>Prompt Pay : 081-1151415</small>
+                            </li>
+                            <li>
+                                <small>เลขบัญชี ธนาคารไทยพานิช 401-990-1486 สาขาตลาดกำแพงแสน</small>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <br>
+                <hr>
+                <br>
+                <div class="row">
+                    <div class="col col-md col-lg col-sm text-center">
+                        <strong>ลงชื่อ............................................................................ผู้ชำระเงิน</strong><br>
+                        <strong>(.......................................................)</strong><br>
+                        <strong>วันที่ (....../....../......)</strong><br>
+                    </div>
+                    <div class="col col-md col-lg col-sm text-center">
+                        <strong>ลงชื่อ............................................................................ผู้รับเงิน</strong><br>
+                        <strong>(.......................................................)</strong><br>
+                        <strong>วันที่ (....../....../......)</strong><br>
+                    </div>
                 </div>
             </div>
-            เพื่อนำเข้าบัญชีหอพักนิสิต<br>
-            <img src="img/scb-logo.jpg" height="40"> บมจ.ธนาคารไทยพานิช เลขที่บัญชี 769-3-00117-4 (Bill Payment)(10/10)
-            <br>
-            <br>
-            <table class="table table-bordered">
-                <tr>
-                    <td>☐ เงินสด/Cash</td>
-                    <td>จำนวนเงิน/Amount</td>
-                    <td>ค่าธรรมเนียม</td>
-                    <td>รวม</td>
-                </tr>
-                <tr>
-                    <td>ค่าหอพักประจำวันที่ <?php echo date("Y/m/d") . ' (' . $detail['tower_name'] . ')'; ?></td>
-                    <td><?php echo $detail['cost'] ?></td>
-                    <td>10</td>
-                    <td><?php echo $detail['cost']+10 ?></td>
-                </tr>
-                <tr>
-                    <td>จำนวนเงินเป็นตัวอักษร/Amount in words</td>
-                    <td colspan="3"><?php echo convert($detail['cost']+10); ?></td>
-                </tr>
-            </table>
-            <div class="row">
-                <div class="col-8">
-                    ชื่อผู้นำฝาก/Deposit By........................................................
-                    เบอร์โทรศัพท์/Telephone............................
-                </div>
-                <div class="col-4">
-                    <table class="table table-bordered">
-                        <tr>
-                            <td class="text-center">สำหรับเจ้าหน้าที่ธนาคาร</td>
-                        </tr>
-                        <tr>
-                            <td>ผู้รับเงิน ........................................................</td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-            <div class="text-center" style="margin-bottom: 5px;">
-                <i>
-                    <small>โปรดนำใบนำฝากนี้ไปชำระเงินได้ที่ บมจ.ธนาคารไทยพานิชย์ ทุกสาขาทั่วประเทศ</small>
-                    <br>
-                    <small>โปรดชำระภายในวันที่ 1-10 ของทุกเดือนมิฉะนั้นจะโดนค่าปรับวันละ 50 บาท</small>
-                </i>
-            </div>
+
         </div>
     </div>
 </div>
 </body>
 
-<p class="text-center" style="margin-top: 20px; margin-bottom: 20px;">
-    --------------------------------------------------------------------------
-    <small>สำหรับธนาคาร</small>
-    --------------------------------------------------------------------------
-</p>
-
-<body style="background: white;">
-<div class="container-fluid" style="margin-top: 20px;">
-    <div class="card">
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <span class="font-weight-bold rounded" style="margin-top: 10px;">ใบนำฝากชำระเงินค่าสินค้าหรือบริการ (Bill Payment Pay-In Slip)</span>
-                </div>
-                <div class="col">
-                    <div class="text-right"><i>สำหรับธนาคาร</i><br>โปรดเรียกเก็บค่าธรรมเนียมจากผุ้ชำระเงิน*</div>
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-                <div class="col">
-                    <div class="row">
-                        <div class="col-2">
-                            <img src="img/KU_TH.png" height="75">
-                        </div>
-                        <div class="col">
-                            มหาวิทยาลัยเกษตร์ วิทยาเขตกำแพงแสน<br>
-                            ที่อยู่เลขที่ 1 หมู่ 6 ต.กำแพงแสน อ.กำแพงแสน จ.นครปฐม 73140<br>
-                            โทรศัทพ์ : 0 3434 1550-3 หรือ 0 2942 8003-19
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <table class="table table-bordered">
-                        <tr>
-                            <td class="text-right"><b>สาขา/Branch</b>.........................</td>
-                            <td><b>วันที่/Date</b>.........................</td>
-                        </tr>
-                        <tr>
-                            <th class="text-right">ชื่อ-สกุล (Name-Lastname)</th>
-                            <td>
-                                <?php echo $detail['name'] ?>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th class="text-right">เลขประจำตัวนิสิต (Ref.1)</th>
-                            <td>
-                                <?php echo $detail['student_code'] ?>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th class="text-right">เลขตึก/เลขห้อง (Ref.2)</th>
-                            <td>
-                                <?php echo $detail['tower_no'] ?>
-                                <?php echo $detail['room_no'] ?>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-            เพื่อนำเข้าบัญชีหอพักนิสิต<br>
-            <img src="img/scb-logo.jpg" height="40"> บมจ.ธนาคารไทยพานิช เลขที่บัญชี 769-3-00117-4 (Bill Payment)(10/10)
-            <br>
-            <br>
-            <table class="table table-bordered">
-                <tr>
-                    <td>☐ เงินสด/Cash</td>
-                    <td>จำนวนเงิน/Amount</td>
-                    <td>ค่าธรรมเนียม</td>
-                    <td>รวม</td>
-                </tr>
-                <tr>
-                    <td>ค่าหอพักประจำวันที่ <?php echo date("Y/m/d") . ' (' . $detail['tower_name'] . ')'; ?></td>
-                    <td><?php echo $detail['cost'] ?></td>
-                    <td>10</td>
-                    <td><?php echo $detail['cost']+10 ?></td>
-                </tr>
-                <tr>
-                    <td>จำนวนเงินเป็นตัวอักษร/Amount in words</td>
-                    <td colspan="3"><?php echo convert($detail['cost']+10); ?></td>
-                </tr>
-            </table>
-            <div class="row">
-                <div class="col-8">
-                    ชื่อผู้นำฝาก/Deposit By........................................................
-                    เบอร์โทรศัพท์/Telephone............................
-                </div>
-                <div class="col-4">
-                    <table class="table table-bordered">
-                        <tr>
-                            <td class="text-center">สำหรับเจ้าหน้าที่ธนาคาร</td>
-                        </tr>
-                        <tr>
-                            <td>ผู้รับเงิน ........................................................</td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-            <div class="text-center" style="margin-bottom: 5px;">
-                <i>
-                    <small>โปรดนำใบนำฝากนี้ไปชำระเงินได้ที่ บมจ.ธนาคารไทยพานิชย์ ทุกสาขาทั่วประเทศ</small>
-                    <br>
-                    <small>โปรดชำระภายในวันที่ 1-10 ของทุกเดือนมิฉะนั้นจะโดนค่าปรับวันละ 50 บาท</small>
-                </i>
-            </div>
-        </div>
-    </div>
-</div>
-</body>
 
 </html>
 

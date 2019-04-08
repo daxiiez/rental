@@ -1004,289 +1004,322 @@
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
     <table id="255" parent="15" name="extra_list"/>
-    <table id="256" parent="15" name="rental_detail"/>
-    <table id="257" parent="15" name="report"/>
-    <table id="258" parent="15" name="room"/>
-    <table id="259" parent="15" name="room_img"/>
-    <table id="260" parent="15" name="room_size"/>
-    <table id="261" parent="15" name="room_status"/>
-    <table id="262" parent="15" name="user"/>
-    <column id="263" parent="255" name="rental_id">
+    <table id="256" parent="15" name="information"/>
+    <table id="257" parent="15" name="rental_detail"/>
+    <table id="258" parent="15" name="report"/>
+    <table id="259" parent="15" name="room"/>
+    <table id="260" parent="15" name="room_img"/>
+    <table id="261" parent="15" name="room_size"/>
+    <table id="262" parent="15" name="room_status"/>
+    <table id="263" parent="15" name="user"/>
+    <column id="264" parent="255" name="rental_id">
       <Position>1</Position>
       <DataType>varchar(10)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="264" parent="255" name="list_no">
+    <column id="265" parent="255" name="list_no">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="265" parent="255" name="info">
+    <column id="266" parent="255" name="info">
       <Position>3</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="266" parent="255" name="cost">
+    <column id="267" parent="255" name="cost">
       <Position>4</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="267" parent="255" name="PRIMARY">
+    <key id="268" parent="255" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>rental_id
 list_no</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="268" parent="256" name="rental_id">
-      <Position>1</Position>
-      <DataType>varchar(10)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="269" parent="256" name="rent_date">
-      <Position>2</Position>
-      <DataType>date|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="270" parent="256" name="room_id">
-      <Position>3</Position>
-      <DataType>int(11)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="271" parent="256" name="username">
-      <Position>4</Position>
-      <DataType>varchar(50)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="272" parent="256" name="rent_days">
-      <Position>5</Position>
-      <DataType>int(11)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="273" parent="256" name="check_in">
-      <Position>6</Position>
-      <DataType>date|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="274" parent="256" name="check_out">
-      <Position>7</Position>
-      <DataType>date|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="275" parent="256" name="rent_cost">
-      <Position>8</Position>
-      <DataType>int(11)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="276" parent="256" name="deposit">
-      <Position>9</Position>
-      <DataType>int(11)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="277" parent="256" name="status">
-      <Position>10</Position>
-      <DataType>varchar(1)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="278" parent="256" name="pay_img">
-      <Position>11</Position>
-      <DataType>longblob|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <key id="279" parent="256" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>rental_id</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <column id="280" parent="257" name="report_id">
+    <column id="269" parent="256" name="info_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="281" parent="257" name="username">
+    <column id="270" parent="256" name="info_name">
+      <Position>2</Position>
+      <DataType>varchar(150)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="271" parent="256" name="info_content">
+      <Position>3</Position>
+      <DataType>longblob|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="272" parent="256" name="info_owner">
+      <Position>4</Position>
+      <DataType>varchar(15)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="273" parent="256" name="info_date">
+      <Position>5</Position>
+      <DataType>date|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="274" parent="256" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>info_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="275" parent="257" name="rental_id">
+      <Position>1</Position>
+      <DataType>varchar(10)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="276" parent="257" name="rent_date">
+      <Position>2</Position>
+      <DataType>date|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="277" parent="257" name="room_id">
+      <Position>3</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="278" parent="257" name="username">
+      <Position>4</Position>
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="279" parent="257" name="rent_days">
+      <Position>5</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="280" parent="257" name="check_in">
+      <Position>6</Position>
+      <DataType>date|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="281" parent="257" name="check_out">
+      <Position>7</Position>
+      <DataType>date|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="282" parent="257" name="rent_cost">
+      <Position>8</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="283" parent="257" name="deposit">
+      <Position>9</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="284" parent="257" name="status">
+      <Position>10</Position>
+      <DataType>varchar(1)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="285" parent="257" name="pay_img">
+      <Position>11</Position>
+      <DataType>longblob|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="286" parent="257" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>rental_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="287" parent="258" name="report_id">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="288" parent="258" name="username">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="282" parent="257" name="info">
+    <column id="289" parent="258" name="info">
       <Position>3</Position>
       <DataType>varchar(150)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="283" parent="257" name="report_date">
+    <column id="290" parent="258" name="report_date">
       <Position>4</Position>
       <DataType>date|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="284" parent="257" name="tel">
+    <column id="291" parent="258" name="tel">
       <Position>5</Position>
       <DataType>varchar(10)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="285" parent="257" name="PRIMARY">
+    <key id="292" parent="258" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>report_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="286" parent="258" name="room_id">
+    <column id="293" parent="259" name="room_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="287" parent="258" name="size">
+    <column id="294" parent="259" name="size">
       <Position>2</Position>
       <DataType>varchar(1)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="288" parent="258" name="status">
+    <column id="295" parent="259" name="status">
       <Position>3</Position>
       <DataType>varchar(1)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="289" parent="258" name="cost">
+    <column id="296" parent="259" name="cost">
       <Position>4</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="290" parent="258" name="PRIMARY">
+    <key id="297" parent="259" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>room_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="291" parent="259" name="room_id">
+    <column id="298" parent="260" name="room_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="292" parent="259" name="room_img_id">
+    <column id="299" parent="260" name="room_img_id">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="293" parent="259" name="img">
+    <column id="300" parent="260" name="img">
       <Position>3</Position>
       <DataType>longblob|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="294" parent="259" name="info">
+    <column id="301" parent="260" name="info">
       <Position>4</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="295" parent="259" name="main_flag">
+    <column id="302" parent="260" name="main_flag">
       <Position>5</Position>
       <DataType>varchar(1)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="296" parent="259" name="PRIMARY">
+    <key id="303" parent="260" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>room_id
 room_img_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="297" parent="260" name="size_id">
+    <column id="304" parent="261" name="size_id">
       <Position>1</Position>
       <DataType>varchar(1)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="298" parent="260" name="name">
+    <column id="305" parent="261" name="name">
       <Position>2</Position>
       <DataType>varchar(10)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="299" parent="260" name="PRIMARY">
+    <key id="306" parent="261" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>size_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="300" parent="261" name="status">
+    <column id="307" parent="262" name="status">
       <Position>1</Position>
       <DataType>varchar(1)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="301" parent="261" name="status_desc">
+    <column id="308" parent="262" name="status_desc">
       <Position>2</Position>
       <DataType>varchar(10)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="302" parent="262" name="username">
+    <column id="309" parent="263" name="username">
       <Position>1</Position>
       <DataType>varchar(15)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="303" parent="262" name="password">
+    <column id="310" parent="263" name="password">
       <Position>2</Position>
       <DataType>varchar(15)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="304" parent="262" name="type">
+    <column id="311" parent="263" name="type">
       <Position>3</Position>
       <DataType>varchar(1)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="305" parent="262" name="name">
+    <column id="312" parent="263" name="name">
       <Position>4</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="306" parent="262" name="tel">
+    <column id="313" parent="263" name="tel">
       <Position>5</Position>
       <DataType>varchar(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="307" parent="262" name="address">
+    <column id="314" parent="263" name="address">
       <Position>6</Position>
       <DataType>varchar(150)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="308" parent="262" name="line_id">
+    <column id="315" parent="263" name="line_id">
       <Position>7</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="309" parent="262" name="email">
+    <column id="316" parent="263" name="email">
       <Position>8</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="310" parent="262" name="PRIMARY">
+    <key id="317" parent="263" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>username</ColNames>
       <Primary>1</Primary>

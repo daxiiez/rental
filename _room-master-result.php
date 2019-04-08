@@ -57,6 +57,9 @@ $query = mysqli_query($conn, $sql);
                                 <div class="col-4">
                                     <div class="card">
                                         <ul class="list-group list-group-flush">
+                                            <li class="list-group-item">เลขห้อง : <span
+                                                        class="font-italic text-right"> <?php echo $temp['room_id']; ?></span>
+                                            </li>
                                             <li class="list-group-item"><i class="fa fa-users"></i> <span
                                                         class="font-italic text-right"> <?php echo $temp['name']; ?></span>
                                             </li>
@@ -68,14 +71,22 @@ $query = mysqli_query($conn, $sql);
                                             </li>
                                             <li class="list-group-item">
                                                 <?php
-                                                 if($temp['status']=='A'){
-                                                     ?>
-                                                     <a href="_calendar.php?selectedRoom=<?php echo $temp['room_id']; ?>"
-                                                        class="btn btn-sm btn-block btn-outline-primary"><i
-                                                                 class="fa fa-bookmark"></i> จอง
-                                                     </a>
-                                                <?php
-                                                 }
+                                                if (isset($_SESSION['reserveStatus'])) {
+                                                    if ($temp['status'] == 'A' && $_SESSION['reserveStatus'] != 'N') {
+                                                        ?>
+                                                        <a href="_calendar.php?selectedRoom=<?php echo $temp['room_id']; ?>"
+                                                           class="btn btn-sm btn-block btn-outline-primary"><i
+                                                                    class="fa fa-bookmark"></i> จอง
+                                                        </a>
+                                                        <?php
+                                                    } else if ($temp['status'] == 'A' && $_SESSION['reserveStatus'] == 'N') {
+                                                        ?>
+                                                        <marquee><label class="badge badge-danger">
+                                                                *ไม่สามารถจองได้มีรายการค้างชำระ</label>
+                                                        </marquee>
+                                                        <?php
+                                                    }
+                                                }
                                                 ?>
                                             </li>
                                         </ul>
