@@ -365,6 +365,7 @@ if (isset($_GET['selectedYear'])) {
                     ?>
                     <div class="col-12 text-left text-black-50 font-weight-bold" id="reserveDate">
                         <div class="container">
+
                             <div class="row text-center">
                                 <div class="col-4"><label>ตั้งแต่วันที่ </label>
                                     <input name="startDate" id="startDate"
@@ -429,7 +430,7 @@ if (isset($_GET['selectedYear'])) {
                                             alert("กรุณาเลือกวันที่ที่จะจอง");
                                         } else if (!saveObj.username && isAdmin == 'Y') {
                                             alert("กรุณาเลือกลูกค้าที่จะจอง");
-                                        } else if (!saveObj.deposit && isAdmin == 'Y') {
+                                        } else if (!saveObj.deposit) {
                                             alert("กรุณากรอกจำนวนมัดจำ");
                                         }else{
                                             $.post('SQL_Insert/insertRentalDetail.php', saveObj, (r) => {

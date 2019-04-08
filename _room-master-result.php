@@ -79,15 +79,14 @@ $query = mysqli_query($conn, $sql);
                                                                     class="fa fa-bookmark"></i> จอง
                                                         </a>
                                                         <?php
-                                                    } else if ($temp['status'] == 'A' && $_SESSION['reserveStatus'] == 'N') {
+                                                    } else if ($temp['status'] == 'A' && ($_SESSION['reserveStatus'] == 'N' || $_SESSION['reserveStatus'] == 'W')) {
                                                         ?>
                                                         <marquee><label class="badge badge-danger">
                                                                 *ไม่สามารถจองได้มีรายการค้างชำระ</label>
                                                         </marquee>
                                                         <?php
                                                     }
-                                                } else {
-                                                    ?>
+                                                } else { ?>
                                                     <a href="_calendar.php?selectedRoom=<?php echo $temp['room_id']; ?>"
                                                        class="btn btn-sm btn-block btn-outline-primary"><i
                                                                 class="fa fa-bookmark"></i> จอง
