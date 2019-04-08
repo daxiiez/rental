@@ -86,6 +86,13 @@ $query = mysqli_query($conn, $sql);
                                                         </marquee>
                                                         <?php
                                                     }
+                                                } else {
+                                                    ?>
+                                                    <a href="_calendar.php?selectedRoom=<?php echo $temp['room_id']; ?>"
+                                                       class="btn btn-sm btn-block btn-outline-primary"><i
+                                                                class="fa fa-bookmark"></i> จอง
+                                                    </a>
+                                                    <?php
                                                 }
                                                 ?>
                                             </li>
