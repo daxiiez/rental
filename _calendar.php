@@ -286,7 +286,7 @@ if (isset($_GET['selectedYear'])) {
                                                                 echo 'ห้องถูกจองแล้ววันนี้';
                                                             elseif ($notValidDate)
                                                                 echo 'ไม่สามารถจองย้อนหลังได้'; ?>"
-                                                            style="font-size: x-large; <?php if ($notValidDate) echo 'cursor:not-allowed;'; ?>"
+                                                            style="font-size: x-large; <?php if ($notValidDate||$dateResult) echo 'cursor:not-allowed;'; ?>"
                                                             class="btn <?php
                                                             if ($dateResult) {
                                                                 echo 'btn-danger';
