@@ -11,5 +11,5 @@ $db_host = "localhost";
         echo "Can't connect with MySQL" . mysqli_connect_errno() . "" . mysqli_connect_error();
     }
     mysqli_set_charset($conn, "utf8");
-    date_default_timezone_get("Asia/Bangkok");
+    date_default_timezone_set("Asia/Bangkok");
 ?>

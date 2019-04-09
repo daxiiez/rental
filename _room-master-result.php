@@ -120,6 +120,7 @@ $query = mysqli_query($conn, $sql);
 <script>
 
     function getImage(roomId) {
+        $("#exampleModalLabel").html("รูปภาพห้อง "+roomId);
         $.get("SQL_Select/getImageByRoomId.php?roomId=" + roomId, (r) => {
             let content = JSON.parse(r);
             let html = '                <div id="demo" class="carousel slide" data-ride="carousel">' +
@@ -169,7 +170,7 @@ $query = mysqli_query($conn, $sql);
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">รูปภาพห้อง 111</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                    <span aria-hidden="true">x ปิด</span>
                 </button>
             </div>
             <div class="modal-body" id="imgArea">
