@@ -24,7 +24,7 @@ $sql = "SELECT rental_id,
                rent_cost,
                deposit,
                status,
-               TO_BASE64(pay_img) as pay_img FROM rental_detail WHERE username ='$username' order by rental_id desc";
+               pay_img FROM rental_detail WHERE username ='$username' order by rental_id desc";
 $query = mysqli_query($conn, $sql);
 $rental = mysqli_fetch_array($query);
 $status = $rental['status'];
@@ -193,10 +193,11 @@ include '__navbar_admin.php';
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+
                                         <?php if ($rental['pay_img'] != 'MHg=') {
                                             ?>
                                             <img id="img-upload"
-                                                 src="data:image/jpeg;base64,<?php echo $rental['pay_img'] ?>"
+                                                 src="data:image/jpeg;base64,<?php echo base64_encode($rental['pay_img']) ?>"
                                                  width="50%">
 
                                             <?php

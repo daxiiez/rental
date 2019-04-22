@@ -86,12 +86,15 @@ $query = mysqli_query($conn, $sql);
                                                         </marquee>
                                                         <?php
                                                     }
-                                                } else { ?>
-                                                    <a href="_calendar.php?selectedRoom=<?php echo $temp['room_id']; ?>"
-                                                       class="btn btn-sm btn-block btn-outline-primary"><i
-                                                                class="fa fa-bookmark"></i> จอง
-                                                    </a>
-                                                    <?php
+                                                } else {
+                                                    if ($temp['status'] == 'A') {
+                                                        ?>
+                                                        <a href="_calendar.php?selectedRoom=<?php echo $temp['room_id']; ?>"
+                                                           class="btn btn-sm btn-block btn-outline-primary"><i
+                                                                    class="fa fa-bookmark"></i> จอง
+                                                        </a>
+                                                        <?php
+                                                    }
                                                 }
                                                 ?>
                                             </li>
@@ -120,7 +123,7 @@ $query = mysqli_query($conn, $sql);
 <script>
 
     function getImage(roomId) {
-        $("#exampleModalLabel").html("รูปภาพห้อง "+roomId);
+        $("#exampleModalLabel").html("รูปภาพห้อง " + roomId);
         $.get("SQL_Select/getImageByRoomId.php?roomId=" + roomId, (r) => {
             let content = JSON.parse(r);
             let html = '                <div id="demo" class="carousel slide" data-ride="carousel">' +

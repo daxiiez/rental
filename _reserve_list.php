@@ -14,7 +14,7 @@ DATE_FORMAT(rent_date,'%d/%m/%Y') as rent_date,
 DATE_FORMAT(check_in,'%d/%m/%Y') as check_in,
 DATE_FORMAT(check_out,'%d/%m/%Y') as check_out,
 r.deposit,
-to_base64(r.pay_img) as pay_img,
+r.pay_img,
 r.rent_cost
  from rental_detail r inner join user u on u.username = r.username where 1=1 ";
 if ($type != 'T') {
@@ -91,7 +91,7 @@ include '__navbar_admin.php';
                                     echo '<span class="badge badge-warning">รอพนักงานตรวจสอบหลักฐาน</span>';
                                     ?>
                                     <input type="hidden" id="<?php echo $temp['rental_id']; ?>"
-                                           value="<?php echo $temp['pay_img']; ?>">
+                                           value="<?php echo base64_encode($temp['pay_img']); ?>">
                                     <button onclick="showImage('<?php echo $temp['rental_id']; ?>')" class="btn btn-sm">
                                         ตรวจสอบ
                                     </button>
@@ -172,7 +172,7 @@ include '__navbar_admin.php';
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">หลักฐานการชำระเงิน</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                    <span aria-hidden="true">x ปิด</span>
                 </button>
             </div>
             <div class="modal-body">
