@@ -194,7 +194,8 @@ include '__navbar_admin.php';
                                 <div class="row">
                                     <div class="col-12 col-sm-12 col-md-12 col-lg-12">
 
-                                        <?php if ($rental['pay_img'] != 'MHg=') {
+                                        <?php
+                                        if ($rental['pay_img'] != '0x') {
                                             ?>
                                             <img id="img-upload"
                                                  src="data:image/jpeg;base64,<?php echo base64_encode($rental['pay_img']) ?>"
