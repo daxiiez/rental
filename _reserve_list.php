@@ -75,7 +75,7 @@ include '__navbar_admin.php';
                     while ($temp = mysqli_fetch_array($query, MYSQLI_ASSOC)) {
                         ?>
                         <tr>
-                            <td><?php echo $temp['rental_id']; ?></td>
+                            <td><a href="_reserve.php?rental_id=<?php echo $temp['rental_id']; ?>"><?php echo $temp['rental_id']; ?></a></td>
                             <td><?php echo $temp['rent_date']; ?></td>
                             <td><?php echo $temp['room_id']; ?></td>
                             <td><?php echo $temp['name']; ?></td>

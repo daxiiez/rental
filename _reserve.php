@@ -12,8 +12,20 @@ if (isset($_POST['uploadImg'])) {
         echo '<script>alert("อัพโหลดสำเร็จ!")</script>';
     }
 }
+$username='';
 
-$username = $_SESSION['username'];
+if(isset($_GET['username']) && $_SESSION['type']=='A'){
+    $username = $_GET['username'];
+}else if($_SESSION['type']=='M'){
+    $username = $_SESSION['username'];
+}
+
+$rental_id = '';
+
+if(isset($_GET['rental_id'])){
+    $rental_id = $_GET['rental_id'];
+}
+echo $rental_id."____";
 $sql = "SELECT rental_id,
                DATE_FORMAT(rent_date,'%d/%m/%Y') as rent_date,
                room_id,
@@ -24,7 +36,13 @@ $sql = "SELECT rental_id,
                rent_cost,
                deposit,
                status,
-               pay_img FROM rental_detail WHERE username ='$username' order by rental_id desc";
+               pay_img FROM rental_detail WHERE 1=1 ";
+if($_SESSION['type']=='A' && isset($_GET['rental_id'])){
+    $sql .= "and rental_id ='$rental_id'";
+}else if(isset($_GET['username'])){
+    $sql .= "and username ='$username' order by rental_id desc";
+}
+echo $sql."____";
 $query = mysqli_query($conn, $sql);
 $rental = mysqli_fetch_array($query);
 $status = $rental['status'];

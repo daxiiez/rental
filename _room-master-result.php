@@ -72,14 +72,14 @@ $query = mysqli_query($conn, $sql);
                                             <li class="list-group-item">
                                                 <?php
                                                 if (isset($_SESSION['reserveStatus'])) {
-                                                    if ($temp['status'] == 'A' && $_SESSION['reserveStatus'] != 'N') {
+                                                    if ($temp['status'] == 'A' && $_SESSION['reserveStatus'] != 'N' || $_SESSION['type']=='A') {
                                                         ?>
                                                         <a href="_calendar.php?selectedRoom=<?php echo $temp['room_id']; ?>"
                                                            class="btn btn-sm btn-block btn-outline-primary"><i
                                                                     class="fa fa-bookmark"></i> จอง
                                                         </a>
                                                         <?php
-                                                    } else if ($temp['status'] == 'A' && ($_SESSION['reserveStatus'] == 'N' || $_SESSION['reserveStatus'] == 'W')) {
+                                                    } else if ($temp['status'] == 'A' && ($_SESSION['reserveStatus'] == 'N' || $_SESSION['reserveStatus'] == 'W') && $_SESSION['type']=='M') {
                                                         ?>
                                                         <marquee><label class="badge badge-danger">
                                                                 *ไม่สามารถจองได้มีรายการค้างชำระ</label>
@@ -87,7 +87,7 @@ $query = mysqli_query($conn, $sql);
                                                         <?php
                                                     }
                                                 } else {
-                                                    if ($temp['status'] == 'A' && isset($_SESSION['username'])) {
+                                                    if (($temp['status'] == 'A' && isset($_SESSION['username'])) ) {
                                                         ?>
                                                         <a href="_calendar.php?selectedRoom=<?php echo $temp['room_id']; ?>"
                                                            class="btn btn-sm btn-block btn-outline-primary"><i

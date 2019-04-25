@@ -440,7 +440,7 @@ if (isset($_GET['selectedYear'])) {
                                                 if (r) {
                                                    /* alert("บันทึกข้อมูลสำเร็จ !")
                                                     location.reload();*/
-                                                   window.location = '_reserve.php';
+                                                   window.location = '_reserve.php?username='+saveObj.username;
                                                    console.log(r);
                                                 }
                                             })

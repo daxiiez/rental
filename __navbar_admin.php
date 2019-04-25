@@ -47,7 +47,7 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <?php
-                        if ($_SESSION['reserveStatus'] == 'N' || $_SESSION['reserveStatus'] == 'W') {
+                        if (($_SESSION['reserveStatus'] == 'N' || $_SESSION['reserveStatus'] == 'W') && $_SESSION['type']=='M') {
                             ?>
                             <a class="dropdown-item" href="_reserve.php">
                                 <i class="fa fa-exclamation-triangle"></i> ชำระรายการจอง</a>
