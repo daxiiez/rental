@@ -61,14 +61,16 @@ if (isset($_POST['updateProfile'])) {
     if ($query) {
         $resultMsg = '<div class="alert alert-success alert-dismissible fade show" role="alert" style="margin-top: 10px;">
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
+                               
+                    <span aria-hidden="true">x ปิด</span>
                         </button>
                         <strong><i class="fa fa-check-circle"></i> สำเร็จ!</strong> แก้ไขข้อมูลเรียบร้อยแล้ว
                     </div>';
     } else {
         $resultMsg = '<div class="alert alert-danger alert-dismissible fade show" role="alert" style="margin-top: 10px;">
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
+                              
+                    <span aria-hidden="true">x ปิด</span>
                         </button>
                         <strong><i class="fa fa-times-circle"></i> แก้ไขข้อมูลไม่สำเร็จ!</strong> กรุณากรอกใหม่
                     </div>';
