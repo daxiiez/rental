@@ -87,12 +87,16 @@ $query = mysqli_query($conn, $sql);
                                                         <?php
                                                     }
                                                 } else {
-                                                    if ($temp['status'] == 'A') {
+                                                    if ($temp['status'] == 'A' && isset($_SESSION['username'])) {
                                                         ?>
                                                         <a href="_calendar.php?selectedRoom=<?php echo $temp['room_id']; ?>"
                                                            class="btn btn-sm btn-block btn-outline-primary"><i
                                                                     class="fa fa-bookmark"></i> จอง
                                                         </a>
+                                                        <?php
+                                                    }else if(!isset($_SESSION['username'])){
+                                                        ?>
+                                                        <small class="text-danger">*กรุณาเข้าสู่ระบบก่อนจอง</small>
                                                         <?php
                                                     }
                                                 }
