@@ -25,7 +25,6 @@ $rental_id = '';
 if(isset($_GET['rental_id'])){
     $rental_id = $_GET['rental_id'];
 }
-echo $rental_id."____";
 $sql = "SELECT rental_id,
                DATE_FORMAT(rent_date,'%d/%m/%Y') as rent_date,
                room_id,
@@ -42,7 +41,6 @@ if($_SESSION['type']=='A' && isset($_GET['rental_id'])){
 }else if(isset($_GET['username'])){
     $sql .= "and username ='$username' order by rental_id desc";
 }
-echo $sql."____";
 $query = mysqli_query($conn, $sql);
 $rental = mysqli_fetch_array($query);
 $status = $rental['status'];
