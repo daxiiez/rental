@@ -30,7 +30,6 @@ VALUES ('$username', '$password', '$type', '$name', '$tel', '$address', '$lineId
         if (!isset($_SESSION['username'])) {
             $_SESSION['username'] = $username;
             $_SESSION['type'] = $type;
-            $_SESSION['reserveStatus'] = 'S';
         }
         echo '<script>alert("สมัครสำเร็จ! ยินดีต้อนรับเข้าสู่ Rose Resort"); window.location = "index.php";</script>';
     } else {
