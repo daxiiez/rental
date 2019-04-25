@@ -57,7 +57,6 @@ if (isset($_POST['updateProfile'])) {
                             line_id='$lineId',
                             email = '$email'
                             where username = '$username'";
-    echo $sql;
     $query = mysqli_query($conn, $sql);
     if ($query) {
         $resultMsg = '<div class="alert alert-success alert-dismissible fade show" role="alert" style="margin-top: 10px;">
