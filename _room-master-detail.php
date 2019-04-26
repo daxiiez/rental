@@ -28,10 +28,10 @@
 
 
             <?php
+            $count = 0;
             if ((isset($_GET['roomDetail']) && isset($_GET['roomNo'])))
             {
             $sql = "SELECT * from room_img where room_id = '$roomNo'";
-            $count = 0;
             $query = mysqli_query($conn, $sql);
             while ($temp = mysqli_fetch_array($query, MYSQLI_ASSOC)) {
             $count++;
