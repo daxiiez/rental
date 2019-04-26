@@ -26,14 +26,16 @@ if (isset($_POST['insertRoom'])) {
         $roomNo = $saveRoomNo;
         $alert = '<div class="alert alert-success alert-dismissible fade show" role="alert" style="margin-top: 10px;">
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
+                               
+                    <span aria-hidden="true">x ปิด</span>
                         </button>
                         <strong><i class="fa fa-check-circle"></i> สำเร็จ!</strong> เพิ่มข้อมูลเรียบร้อยแล้ว
                     </div>';
     } else {
         $alert = '<div class="alert alert-danger alert-dismissible fade show" role="alert" style="margin-top: 10px;">
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
+                               
+                    <span aria-hidden="true">x ปิด</span>
                         </button>
                         <strong><i class="fa fa-times-circle"></i> เพิ่มข้อมูลไม่สำเร็จ!</strong> หมายเลขห้องซ้ำกรุณาระบุใหม่
                     </div>';
