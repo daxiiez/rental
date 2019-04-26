@@ -133,13 +133,13 @@ if (isset($_GET['searchRoom'])) {
                             <li class="list-group-item">
                                 <div class="custom-control custom-radio">
                                     <input type="radio" id="searchSize1" name="searchSize" value="S" class="custom-control-input" <?php if($size=='S') echo 'checked'?>>
-                                    <label class="custom-control-label" for="searchSize1"> 1 คน </label>
+                                    <label class="custom-control-label" for="searchSize1"> 1-2 คน </label>
                                 </div>
                             </li>
                             <li class="list-group-item">
                                 <div class="custom-control custom-radio">
                                     <input type="radio" id="searchSize2" name="searchSize" value="M" class="custom-control-input" <?php if($size=='M') echo 'checked'?>>
-                                    <label class="custom-control-label" for="searchSize2"> 2-3 คน </label>
+                                    <label class="custom-control-label" for="searchSize2"> 3-4 คน </label>
                                 </div>
                             </li>
                             <li class="list-group-item">
