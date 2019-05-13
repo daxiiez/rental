@@ -8,7 +8,7 @@ if (isset($_GET['search'])) {
     $month = $_GET['month'];
     $year = $_GET['year'];
 }
-$sql = "select * from rental_detail where date_format(check_in,'%m-%Y')  = CONCAT(LPAD($month,2,'0'),'-',$year) and status != 'C';";
+$sql = "select * from rental_detail where date_format(check_in,'%m-%Y')  = CONCAT(LPAD($month,2,'0'),'-',$year) and status != 'C' order by check_in; ";
 $query = mysqli_query($conn, $sql);
 $queryC = mysqli_query($conn, $sql);
 ?>
