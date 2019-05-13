@@ -83,8 +83,8 @@ if (isset($_GET['roomIdSearch'])) {
                                                         ลำดับการจอง :
                                                     </strong> <?php echo $temp['rental_id'] ?>
                                                     <strong> ห้องที่จอง : </strong> <?php echo $temp['room_id'] ?><br>
-                                                    <strong> Check In : </strong> <?php echo $temp['check_in'] ?><br>
-                                                    <strong> Check Out : </strong> <?php echo $temp['check_out'] ?><br>
+                                                    <strong> Check In : </strong> <?php echo $temp['check_in'] ?> <strong> เวลา Check In : </strong> <?php echo $temp['check_in_time'] ?><br>
+                                                    <strong> Check Out : </strong> <?php echo $temp['check_out'] ?> <strong> เวลา Check Out : </strong> <?php echo $temp['check_out_time'] ?><br>
                                                     <strong> รวมจำนวนวันที่เข้าพัก
                                                         : </strong> <?php echo $temp['rent_days'] ?> วัน
                                                 </div>

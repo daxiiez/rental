@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dacaa058-ecae-410f-b366-2e64db850642" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/_checkIn.php" beforeDir="false" afterPath="$PROJECT_DIR$/_checkIn.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_checkOut.php" beforeDir="false" afterPath="$PROJECT_DIR$/_checkOut.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_reserve_list_customer.php" beforeDir="false" afterPath="$PROJECT_DIR$/_reserve_list_customer.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -90,16 +89,16 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/_reserve_list_customer.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="196" column="93" selection-start-line="196" selection-start-column="93" selection-end-line="196" selection-end-column="93" />
+            <state relative-caret-position="204">
+              <caret line="86" column="184" selection-start-line="86" selection-start-column="184" selection-end-line="86" selection-end-column="184" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/_checkOut.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="287">
@@ -211,7 +210,6 @@
         <option value="$PROJECT_DIR$/_room-master-detail.php" />
         <option value="$PROJECT_DIR$/_room-master.php" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
-        <option value="$PROJECT_DIR$/_reserve_list_customer.php" />
         <option value="$PROJECT_DIR$/__navbar_admin.php" />
         <option value="$PROJECT_DIR$/_room-master-result.php" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/707ad2b1-04b9-4264-afe5-9c10787b42ba/console.sql" />
@@ -226,6 +224,7 @@
         <option value="$PROJECT_DIR$/__PDF_booking_cost.php" />
         <option value="$PROJECT_DIR$/_checkIn.php" />
         <option value="$PROJECT_DIR$/_checkOut.php" />
+        <option value="$PROJECT_DIR$/_reserve_list_customer.php" />
       </list>
     </option>
   </component>
@@ -332,12 +331,12 @@
       <workItem from="1557550959313" duration="6342000" />
       <workItem from="1557662003476" duration="7731000" />
       <workItem from="1557720961257" duration="9342000" />
-      <workItem from="1557730920938" duration="30707000" />
+      <workItem from="1557730920938" duration="30841000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="205777000" />
+    <option name="totallyTimeSpent" value="205911000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -671,13 +670,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_reserve_list_customer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="196" column="93" selection-start-line="196" selection-start-column="93" selection-end-line="196" selection-end-column="93" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_reserve.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -739,6 +731,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="287">
           <caret line="129" column="150" selection-start-line="129" selection-start-column="150" selection-end-line="129" selection-end-column="150" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_reserve_list_customer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="86" column="184" selection-start-line="86" selection-start-column="184" selection-end-line="86" selection-end-column="184" />
         </state>
       </provider>
     </entry>
