@@ -23,6 +23,8 @@ r.rent_cost
 if ($type != 'T') {
     $sql .= " and status = '$type'";
 }
+
+$sql .= " order by check_in desc ";
 ?>
 <!Document>
 <html>
@@ -87,7 +89,7 @@ include '__navbar_admin.php';
                             <td><?php echo $temp['name']; ?></td>
                             <td><?php echo $temp['check_in'].' '.$temp['check_in_time']; ?></td>
                             <td><?php echo $temp['check_out'].' '.$temp['check_out_time']; ?></td>
-                            <td><?php echo $temp['rent_days']; ?></td>
+                            <td><?php echo $temp['rent_days']." วัน ".($temp['rent_days']-1)." คืน"; ?></td>
                             <td class="text-center"><?php echo $temp['rent_cost'] . '/' . ($temp['rent_cost'] - $temp['deposit']); ?></td>
                             <td><?php
                                 if ($temp['status'] == 'N') {

@@ -209,12 +209,13 @@ include '__navbar_admin.php';
 
                                     <div class="col-12">
 
-                                        <div class="input-group input-group-sm" >
+                                        <div class="input-group input-group-sm">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text bg-primary text-white"
                                                       id="inputGroup-sizing-sm">จำนวนวันเข้าพัก</span>
                                             </div>
-                                            <input type="text" value="<?php echo $temp['rent_days'] ?>"
+                                            <input type="text"
+                                                   value="<?php echo $temp['rent_days'] . ' วัน ' . ($temp['rent_days'] - 1) . " คืน" ?>"
                                                    class="form-control bg-white" aria-label="Small"
                                                    aria-describedby="inputGroup-sizing-sm" readonly>
                                         </div>

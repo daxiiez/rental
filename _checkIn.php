@@ -115,7 +115,7 @@ if (isset($_GET['roomIdSearch'])) {
                                             ?></h3><br> <span class="font-weight-bold ">สถานะ</span> <label
                                                 class="badge badge-secondary"><?php echo $txt; ?></label>
                                         <br><strong>Check Out : </strong><?php echo $check_out; ?>
-                                        (<?php echo $temp['rent_days']; ?> วัน)<br>
+                                        (<?php echo $temp['rent_days']." วัน ".($temp['rent_days']-1)." คืน"; ?> )<br>
                                         <strong>การชำระเงิน : </strong>
                                         <?php
                                         if ($temp['rent_cost'] - $temp['deposit'] != 0) {

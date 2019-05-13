@@ -2,13 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dacaa058-ecae-410f-b366-2e64db850642" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/SQL_Insert/insertRentalDetail.php" beforeDir="false" afterPath="$PROJECT_DIR$/SQL_Insert/insertRentalDetail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SQL_Update/updateRentStatus.php" beforeDir="false" afterPath="$PROJECT_DIR$/SQL_Update/updateRentStatus.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_calendar.php" beforeDir="false" afterPath="$PROJECT_DIR$/_calendar.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_checkIn.php" beforeDir="false" afterPath="$PROJECT_DIR$/_checkIn.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_checkOut.php" beforeDir="false" afterPath="$PROJECT_DIR$/_checkOut.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_report_list.php" beforeDir="false" afterPath="$PROJECT_DIR$/_report_list.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_reserve.php" beforeDir="false" afterPath="$PROJECT_DIR$/_reserve.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_reserve_list.php" beforeDir="false" afterPath="$PROJECT_DIR$/_reserve_list.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_room-master-result.php" beforeDir="false" afterPath="$PROJECT_DIR$/_room-master-result.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -66,8 +65,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/_report_list.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="177" column="54" lean-forward="true" selection-start-line="177" selection-start-column="54" selection-end-line="177" selection-end-column="54" />
+            <state relative-caret-position="188">
+              <caret line="217" column="124" selection-start-line="217" selection-start-column="124" selection-end-line="217" selection-end-column="124" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -80,12 +79,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/_reserve_list.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="15" column="2" selection-start-line="15" selection-start-column="2" selection-end-line="15" selection-end-column="2" />
-              <caret line="16" column="2" selection-start-line="16" selection-start-column="2" selection-end-line="16" selection-end-column="2" />
+            <state relative-caret-position="335">
+              <caret line="26" column="32" selection-start-line="26" selection-start-column="32" selection-end-line="26" selection-end-column="32" />
               <folding>
                 <element signature="n#src#0;n#img#0;n#!!top" expanded="true" />
               </folding>
@@ -96,8 +94,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/_calendar.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="124">
-              <caret line="428" column="104" selection-start-line="428" selection-start-column="104" selection-end-line="428" selection-end-column="104" />
+            <state relative-caret-position="269">
+              <caret line="180" column="26" selection-start-line="180" selection-start-column="26" selection-end-line="180" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_room-master.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="140">
+              <caret line="37" column="57" selection-start-line="37" selection-start-column="57" selection-end-line="37" selection-end-column="57" />
             </state>
           </provider>
         </entry>
@@ -105,8 +112,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/_checkIn.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1447">
-              <caret line="37" column="6" lean-forward="true" selection-start-line="37" selection-start-column="6" selection-end-line="37" selection-end-column="6" />
+            <state relative-caret-position="-23">
+              <caret line="117" column="40" lean-forward="true" selection-start-line="117" selection-start-column="40" selection-end-line="117" selection-end-column="114" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -124,31 +131,12 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SQL_Insert/insertRentalDetail.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="293">
-              <caret line="29" column="31" lean-forward="true" selection-start-line="29" selection-start-column="31" selection-end-line="29" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/_checkOut.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="124" column="136" selection-start-line="124" selection-start-column="136" selection-end-line="124" selection-end-column="136" />
+            <state relative-caret-position="372">
+              <caret line="131" column="155" selection-start-line="131" selection-start-column="155" selection-end-line="131" selection-end-column="155" />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SQL_Insert/insertImportList.php">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SQL_Insert/insertBookDetail.php">
-          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -156,6 +144,27 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="323">
               <caret line="37" column="22" lean-forward="true" selection-start-line="37" selection-start-column="22" selection-end-line="37" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_room-master-detail.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="497">
+              <caret line="252" column="39" selection-start-line="252" selection-start-column="39" selection-end-line="252" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/_room-master-result.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="184">
+              <caret line="12" column="69" selection-start-line="12" selection-start-column="69" selection-end-line="12" selection-end-column="69" />
+              <folding>
+                <element signature="n#src#0;n#img#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -190,6 +199,7 @@
       <find>insertRegis</find>
       <find>print</find>
       <find>updateRentStatus.php</find>
+      <find>จำนวนวันรวม</find>
     </findStrings>
     <replaceStrings>
       <replace>0</replace>
@@ -214,7 +224,6 @@
         <option value="$PROJECT_DIR$/_information.php" />
         <option value="$PROJECT_DIR$/_information_create.php" />
         <option value="$PROJECT_DIR$/index.php" />
-        <option value="$PROJECT_DIR$/_room-master-result.php" />
         <option value="$PROJECT_DIR$/__login.php" />
         <option value="$PROJECT_DIR$/_room-master-detail.php" />
         <option value="$PROJECT_DIR$/_room-master.php" />
@@ -225,14 +234,15 @@
         <option value="$PROJECT_DIR$/__PDF_booking_cost.php" />
         <option value="$PROJECT_DIR$/__navbar_admin.php" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/707ad2b1-04b9-4264-afe5-9c10787b42ba/console.sql" />
-        <option value="$PROJECT_DIR$/_calendar.php" />
-        <option value="$PROJECT_DIR$/_checkIn.php" />
         <option value="$PROJECT_DIR$/SQL_Insert/insertRentalDetail.php" />
         <option value="$PROJECT_DIR$/SQL_Update/updateRentStatus.php" />
         <option value="$PROJECT_DIR$/_reserve.php" />
+        <option value="$PROJECT_DIR$/_calendar.php" />
+        <option value="$PROJECT_DIR$/_checkIn.php" />
         <option value="$PROJECT_DIR$/_checkOut.php" />
         <option value="$PROJECT_DIR$/_report_list.php" />
         <option value="$PROJECT_DIR$/_reserve_list.php" />
+        <option value="$PROJECT_DIR$/_room-master-result.php" />
       </list>
     </option>
   </component>
@@ -339,12 +349,12 @@
       <workItem from="1557550959313" duration="6342000" />
       <workItem from="1557662003476" duration="7731000" />
       <workItem from="1557720961257" duration="9342000" />
-      <workItem from="1557730920938" duration="18374000" />
+      <workItem from="1557730920938" duration="22160000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="193444000" />
+    <option name="totallyTimeSpent" value="197230000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -572,33 +582,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_room-master-detail.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4284">
-          <caret line="252" column="39" selection-start-line="252" selection-start-column="39" selection-end-line="252" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_room-master-result.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2907">
-          <caret line="171" selection-start-line="171" selection-end-line="171" />
-        </state>
-      </provider>
-    </entry>
     <entry file="das://707ad2b1-04b9-4264-afe5-9c10787b42ba/schema/rental/table/user">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true">
             <filter text="" />
           </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_room-master.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="37" column="57" selection-start-line="37" selection-start-column="57" selection-end-line="37" selection-end-column="57" />
         </state>
       </provider>
     </entry>
@@ -671,13 +660,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_calendar.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="428" column="104" selection-start-line="428" selection-start-column="104" selection-end-line="428" selection-end-column="104" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SQL_Insert/insertImportList.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -698,34 +680,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_reserve.php">
+    <entry file="file://$PROJECT_DIR$/_checkOut.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="37" column="22" lean-forward="true" selection-start-line="37" selection-start-column="22" selection-end-line="37" selection-end-column="22" />
+        <state relative-caret-position="372">
+          <caret line="131" column="155" selection-start-line="131" selection-start-column="155" selection-end-line="131" selection-end-column="155" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/_checkIn.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1447">
-          <caret line="37" column="6" lean-forward="true" selection-start-line="37" selection-start-column="6" selection-end-line="37" selection-end-column="6" />
+        <state relative-caret-position="-23">
+          <caret line="117" column="40" lean-forward="true" selection-start-line="117" selection-start-column="40" selection-end-line="117" selection-end-column="114" />
           <folding>
             <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_checkOut.php">
+    <entry file="file://$PROJECT_DIR$/_calendar.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="124" column="136" selection-start-line="124" selection-start-column="136" selection-end-line="124" selection-end-column="136" />
+        <state relative-caret-position="269">
+          <caret line="180" column="26" selection-start-line="180" selection-start-column="26" selection-end-line="180" selection-end-column="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/_report_list.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="177" column="54" lean-forward="true" selection-start-line="177" selection-start-column="54" selection-end-line="177" selection-end-column="54" />
+        <state relative-caret-position="188">
+          <caret line="217" column="124" selection-start-line="217" selection-start-column="124" selection-end-line="217" selection-end-column="124" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -739,9 +721,39 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/_reserve_list.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="15" column="2" selection-start-line="15" selection-start-column="2" selection-end-line="15" selection-end-column="2" />
-          <caret line="16" column="2" selection-start-line="16" selection-start-column="2" selection-end-line="16" selection-end-column="2" />
+        <state relative-caret-position="335">
+          <caret line="26" column="32" selection-start-line="26" selection-start-column="32" selection-end-line="26" selection-end-column="32" />
+          <folding>
+            <element signature="n#src#0;n#img#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_reserve.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="37" column="22" lean-forward="true" selection-start-line="37" selection-start-column="22" selection-end-line="37" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_room-master-detail.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="497">
+          <caret line="252" column="39" selection-start-line="252" selection-start-column="39" selection-end-line="252" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_room-master.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="37" column="57" selection-start-line="37" selection-start-column="57" selection-end-line="37" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_room-master-result.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="12" column="69" selection-start-line="12" selection-start-column="69" selection-end-line="12" selection-end-column="69" />
           <folding>
             <element signature="n#src#0;n#img#0;n#!!top" expanded="true" />
           </folding>

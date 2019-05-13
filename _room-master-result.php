@@ -10,6 +10,7 @@ $query = mysqli_query($conn, $sql);
         ช้อมูลห้องพักทั้งหมด
     </div>
     <div class="card-body">
+        <span class="text-danger">*ภาพที่แสดงเป็นเพียงภาพจำลองทั้งหมด</span>
         <div class="row">
             <?php
             $count = 0;

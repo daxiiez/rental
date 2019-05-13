@@ -178,6 +178,7 @@ if (isset($_GET['selectedYear'])) {
             $("#startDate").val(startDate)
             $("#endDate").val(endDate)
             $("#totalDate").val(totalDate)
+            $("#totalNight").val(totalDate-1)
             $("#totalCost").val(Number(totalDate) * Number(cost))
             $("#deposit").removeAttr("disabled");
         } else {
@@ -187,6 +188,7 @@ if (isset($_GET['selectedYear'])) {
             $("#endDate").val("")
             $("#totalDate").val("")
             $("#totalCost").val("")
+            $("#totalNight").val("")
         }
         //$("#reserveDate").html("<h3>" + txt + "</h3>");
     }
@@ -269,6 +271,7 @@ if (isset($_GET['selectedYear'])) {
                                         if ($end) {
                                             echo '<tr>';
                                         }
+
                                         for ($j = 0; $j < 7; $j++) {
                                             $day = intval(date("w", strtotime($_SESSION['currentYear'] . '-' . $month . '-' . $i)));
                                             $notValidDate = ($i < $_SESSION['currentDate'] && $month == $_SESSION['currentMonth'] && $year == $_SESSION['currentYear'])
@@ -370,16 +373,20 @@ if (isset($_GET['selectedYear'])) {
                         <div class="container">
 
                             <div class="row text-center">
-                                <div class="col-4"><label>ตั้งแต่วันที่ </label>
+                                <div class="col-3"><label>ตั้งแต่วันที่ </label>
                                     <input name="startDate" id="startDate"
                                            class="form-control"
                                            placeholder="ยังไม่ได้เลือกวันที่" readonly required></div>
-                                <div class="col-4"><label> ถึงวันที่</label>
+                                <div class="col-3"><label> ถึงวันที่</label>
                                     <input name="endDate" id="endDate"
                                            class="form-control" placeholder="ยังไม่ได้เลือกวันที่" readonly required>
                                 </div>
-                                <div class="col-4"><label>จำนวนวันรวม </label>
+                                <div class="col-3"><label>จำนวนวันรวม </label>
                                     <input name="totalDate" id="totalDate"
+                                           class="form-control"
+                                           placeholder="ยังไม่ได้เลือกวันที่" readonly required></div>
+                                <div class="col-3"><label>จำนวนคืนรวม </label>
+                                    <input name="totalNight" id="totalNight"
                                            class="form-control"
                                            placeholder="ยังไม่ได้เลือกวันที่" readonly required></div>
                                 <div class="col-3"><label>ราคาห้อง </label>
@@ -392,7 +399,7 @@ if (isset($_GET['selectedYear'])) {
                                 </div>
                                 <div class="col-3"><label>เงินมัดจำ </label>
                                     <input name="deposit" id="deposit"
-                                           class="form-control" placeholder="มากกว่า 50% ของราคาทั้งหมด"
+                                           class="form-control" placeholder="50% ของราคาทั้งหมด"
                                            onchange="checkDeposit()" disabled required>
                                 </div>
                                 <div class="col-3"><label>คงเหลือ </label>
@@ -433,6 +440,8 @@ if (isset($_GET['selectedYear'])) {
                                             alert("กรุณาเลือกลูกค้าที่จะจอง");
                                         } else if (!saveObj.deposit) {
                                             alert("กรุณากรอกจำนวนมัดจำ");
+                                        }else if(saveObj.totalDate<2){
+                                            alert("กรุณาระบุวันที่ Check Out")
                                         }else{
                                             $.post('SQL_Insert/insertRentalDetail.php', saveObj, (r) => {
                                                 if (r) {
