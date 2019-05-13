@@ -446,7 +446,7 @@ if (isset($_GET['selectedYear'])) {
                                             $.post('SQL_Insert/insertRentalDetail.php', saveObj, (r) => {
                                                 if (r) {
                                                     console.log(r);
-                                                    alert(r);
+                                                    alert("เพิ่มรายการสำเร็จ");
                                                     if(isAdmin!='Y'){
                                                         <?php
                                                         echo 'saveObj.username = "'.$_SESSION['username'].'"';
