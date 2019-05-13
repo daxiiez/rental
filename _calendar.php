@@ -426,9 +426,7 @@ if (isset($_GET['selectedYear'])) {
                                     }
 
                                     function reserveRoom() {
-                                        console.log(isAdmin);
-                                        let saveObj = arrayToObject($("#reserveForm").serializeArray())
-                                        console.log(saveObj);
+                                        let saveObj = arrayToObject($("#reserveForm").serializeArray());
                                         if (!saveObj.startDate) {
                                             alert("กรุณาเลือกวันที่ที่จะจอง");
                                         } else if (!saveObj.username && isAdmin == 'Y') {
@@ -438,10 +436,15 @@ if (isset($_GET['selectedYear'])) {
                                         }else{
                                             $.post('SQL_Insert/insertRentalDetail.php', saveObj, (r) => {
                                                 if (r) {
-                                                   /* alert("บันทึกข้อมูลสำเร็จ !")
-                                                    location.reload();*/
+                                                    console.log(r);
+                                                    alert(r);
+                                                    if(isAdmin!='Y'){
+                                                        <?php
+                                                        echo 'saveObj.username = "'.$_SESSION['username'].'"';
+                                                        ?>
+                                                    }
                                                    window.location = '_reserve.php?username='+saveObj.username;
-                                                   console.log(r);
+
                                                 }
                                             })
                                         }

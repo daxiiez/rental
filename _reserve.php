@@ -40,6 +40,8 @@ if($_SESSION['type']=='A' && isset($_GET['rental_id'])){
     $sql .= "and rental_id ='$rental_id'";
 }else if(isset($_GET['rental_id'])){
     $sql .= "and username ='$username' and rental_id ='$rental_id'";
+}else if(isset($_GET['username']) && $_SESSION['type']!='A'){
+    $sql .= "and username ='$username' order by rental_id desc ";
 }
 $query = mysqli_query($conn, $sql);
 $rental = mysqli_fetch_array($query);
