@@ -24,7 +24,7 @@ if ($type != 'T') {
     $sql .= " and status = '$type'";
 }
 
-$sql .= " order by check_in desc ";
+$sql .= " order by  r.check_in";
 ?>
 <!Document>
 <html>
