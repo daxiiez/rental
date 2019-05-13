@@ -139,20 +139,25 @@ include '__navbar_admin.php';
             </div>
             <br>
             <div class="row">
-                <div class="col-4">
+                <div class="col-3">
                         <span>
                             <b>รวมราคา (บาท)</b> : <?php echo $rental['rent_cost'] ?>
                         </span>
                 </div>
-                <div class="col-4">
+                <div class="col-3">
                     <span>
                         <b>มัดจำ (บาท)</b> : <?php echo $rental['deposit'] ?>
                     </span>
                 </div>
-                <div class="col-4">
+                <div class="col-3">
                     <span>
                         <b>คงเหลือ (บาท)</b> : <?php echo $rental['rent_cost'] - $rental['deposit'] ?>
                     </span>
+                </div>
+                <div class="col-3">
+                        <span>
+                            <b>รวม(วัน)</b> : <?php echo $rental['rent_days']." วัน ".($rental['rent_days']-1)." คืน" ?>
+                        </span>
                 </div>
             </div>
             <br>

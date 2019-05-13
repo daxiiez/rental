@@ -91,7 +91,7 @@ if(isset($_GET['payment'])){
                 <div class="row">
                     <div class="col-4">
                     <span>
-                        <b>จองวันที่</b> : <?php echo $rental['rent_date'] ?>
+                        <b>จองวันที่</b> : <?php echo $rental['rent_date'];  ?>
                     </span>
                     </div>
                     <div class="col-8">
@@ -114,7 +114,7 @@ if(isset($_GET['payment'])){
                     </div>
                     <div class="col-4">
                         <span>
-                            <b>รวม(วัน)</b> : <?php echo $rental['rent_days'] ?>
+                            <b>รวม(วัน)</b> : <?php echo $rental['rent_days']." วัน ".($rental['rent_days']-1)." คืน" ?>
                         </span>
                     </div>
                 </div>
