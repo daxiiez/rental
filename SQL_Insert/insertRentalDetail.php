@@ -25,8 +25,8 @@ if ($_POST) {
          'N',
           '0x',
           'N',
-          '',
-          ''
+          '13:00:00',
+          '12:00:00'
            from rental_detail";
     $_SESSION['reserveStatus'] = 'N';
     $query = mysqli_query($conn, $sql);

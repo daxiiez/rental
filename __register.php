@@ -157,9 +157,9 @@ include '__navbar_admin.php';
                         <div class="col-6">
                             <div class="form-group">
                                 <label class="font-weight-bold">ชื่อผู้ใช้</label>
-                                <input class="form-control" pattern="[A-Za-z]{8,10}" name="username"
+                                <input class="form-control" pattern="[A-Za-z0-9]{8,10}" name="username"
                                        placeholder="กรุณากรอกชื่อผู้ใช้ภาษาอังกฤษ 8 ตัวขึ้นไป"
-                                      
+
                                        onchange="checkUsername()"
                                        id="username"
                                     <?php if ($viewProfile) {
@@ -199,7 +199,9 @@ include '__navbar_admin.php';
                                         echo 'นาย';
                                     }
                                     ?>">
+
                                     <input class="form-control" name="name" id="name"
+                                           pattern="[\s\S]{8,100}$"
                                            placeholder="กรุณากรอกชื่อภาษาไทย 8 ตัวขึ้นไป"
                                         <?php if ($viewProfile) {
                                             echo 'value="' . $name . '"';
@@ -213,7 +215,7 @@ include '__navbar_admin.php';
                             <div class="col-6">
                                 <div class="form-group">
                                     <label class="font-weight-bold">รหัสผ่าน</label>
-                                    <input type="password" class="form-control" name="password" id="password"
+                                    <input type="password" pattern="[\s\S]{8,100}$" class="form-control" name="password" id="password"
                                            placeholder="กรุณากรอกรหัสผ่าน 8 ตัวขึ้นไป"
                                            required>
                                 </div>
@@ -221,7 +223,7 @@ include '__navbar_admin.php';
                             <div class="col-6">
                                 <div class="form-group">
                                     <label class="font-weight-bold">ยืนยันรหัสผ่าน</label>
-                                    <input type="password" onchange="checkPassword()" class="form-control"
+                                    <input type="password" pattern="[\s\S]{8,10}$" onchange="checkPassword()" class="form-control"
                                            placeholder="กรุณากรอกรหัสผ่าน 8 ตัวขึ้นไป"
                                            name="cpassword"
                                            id="cpassword" required>
@@ -233,7 +235,7 @@ include '__navbar_admin.php';
                         <div class="col-6">
                             <div class="form-group">
                                 <label class="font-weight-bold">โทรศัพท์</label>
-                                <input class="form-control" name="tel" id="tel"
+                                <input class="form-control" pattern="[\s\S]{11}$" name="tel" id="tel"
                                        placeholder="กรุณากรอกเบอร์ 10 หลัก 0xx-xxxxxxx"
                                     <?php if ($viewProfile) {
                                         echo 'value="' . $tel . '"';

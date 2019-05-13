@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dacaa058-ecae-410f-b366-2e64db850642" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/SQL_Insert/insertRentalDetail.php" beforeDir="false" afterPath="$PROJECT_DIR$/SQL_Insert/insertRentalDetail.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SQL_Update/updateRentStatus.php" beforeDir="false" afterPath="$PROJECT_DIR$/SQL_Update/updateRentStatus.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/__PDF_booking_cost.php" beforeDir="false" afterPath="$PROJECT_DIR$/__PDF_booking_cost.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/__register.php" beforeDir="false" afterPath="$PROJECT_DIR$/__register.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_calendar.php" beforeDir="false" afterPath="$PROJECT_DIR$/_calendar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_reserve.php" beforeDir="false" afterPath="$PROJECT_DIR$/_reserve.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_reserve_payment.php" beforeDir="false" afterPath="$PROJECT_DIR$/_reserve_payment.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -75,43 +81,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_reserve_list.php">
+        <entry file="file://$PROJECT_DIR$/_checkIn.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="267">
-              <caret line="28" column="11" lean-forward="true" selection-start-line="28" selection-start-column="11" selection-end-line="28" selection-end-column="11" />
-              <folding>
-                <element signature="n#src#0;n#img#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="740">
+              <caret line="117" column="40" lean-forward="true" selection-start-line="117" selection-start-column="40" selection-end-line="117" selection-end-column="114" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/707ad2b1-04b9-4264-afe5-9c10787b42ba/console.sql">
+        <entry file="file://$PROJECT_DIR$/SQL_Update/updateRentStatus.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="32" column="85" lean-forward="true" selection-start-line="32" selection-start-column="85" selection-end-line="32" selection-end-column="96" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_room-master-detail.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="497">
-              <caret line="252" column="39" selection-start-line="252" selection-start-column="39" selection-end-line="252" selection-end-column="39" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_room-master-result.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="697">
-              <caret line="41" column="66" lean-forward="true" selection-start-line="41" selection-start-column="66" selection-end-line="41" selection-end-column="66" />
-              <folding>
-                <element signature="n#src#0;n#img#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="323">
+              <caret line="19" column="62" selection-start-line="19" selection-start-column="62" selection-end-line="19" selection-end-column="62" />
             </state>
           </provider>
         </entry>
@@ -119,29 +101,49 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/__PDF_booking_cost.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="113" column="26" lean-forward="true" selection-start-line="113" selection-start-column="26" selection-end-line="113" selection-end-column="26" />
+            <state relative-caret-position="202">
+              <caret line="66" lean-forward="true" selection-start-line="66" selection-end-line="66" />
               <folding>
                 <element signature="n#convert#0;n#!!top" />
+                <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_calendar.php">
+        <entry file="file://$PROJECT_DIR$/_reserve_list_customer.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-321">
-              <caret line="448" column="76" selection-start-line="448" selection-start-column="76" selection-end-line="448" selection-end-column="76" />
+            <state relative-caret-position="340">
+              <caret line="196" column="93" selection-start-line="196" selection-start-column="93" selection-end-line="196" selection-end-column="93" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/_calendar.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="407">
+              <caret line="192" column="37" selection-start-line="192" selection-start-column="37" selection-end-line="192" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SQL_Insert/insertRentalDetail.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="24" column="13" lean-forward="true" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/__register.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="339">
-              <caret line="161" column="38" selection-start-line="161" selection-start-column="38" selection-end-line="161" selection-end-column="38" />
+            <state relative-caret-position="727">
+              <caret line="281" column="45" lean-forward="true" selection-start-line="281" selection-start-column="45" selection-end-line="281" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -149,8 +151,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/_reserve.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="141" column="33" selection-start-line="141" selection-start-column="33" selection-end-line="141" selection-end-column="33" />
+            <state relative-caret-position="238">
+              <caret line="34" column="62" lean-forward="true" selection-start-line="34" selection-start-column="62" selection-end-line="36" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -159,7 +161,7 @@
         <entry file="file://$PROJECT_DIR$/_reserve_payment.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="225">
-              <caret line="146" column="27" lean-forward="true" selection-start-line="146" selection-start-column="27" selection-end-line="146" selection-end-column="27" />
+              <caret line="35" column="30" selection-start-line="35" selection-start-column="30" selection-end-line="35" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -196,6 +198,7 @@
       <find>updateRentStatus.php</find>
       <find>จำนวนวันรวม</find>
       <find>alert</find>
+      <find>$rental</find>
     </findStrings>
     <replaceStrings>
       <replace>0</replace>
@@ -226,19 +229,19 @@
         <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
         <option value="$PROJECT_DIR$/_reserve_list_customer.php" />
         <option value="$PROJECT_DIR$/__navbar_admin.php" />
-        <option value="$PROJECT_DIR$/SQL_Insert/insertRentalDetail.php" />
-        <option value="$PROJECT_DIR$/SQL_Update/updateRentStatus.php" />
         <option value="$PROJECT_DIR$/_checkIn.php" />
         <option value="$PROJECT_DIR$/_checkOut.php" />
         <option value="$PROJECT_DIR$/_room-master-result.php" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/707ad2b1-04b9-4264-afe5-9c10787b42ba/console.sql" />
         <option value="$PROJECT_DIR$/_reserve_list.php" />
         <option value="$PROJECT_DIR$/_report_list.php" />
-        <option value="$PROJECT_DIR$/__PDF_booking_cost.php" />
-        <option value="$PROJECT_DIR$/_reserve_payment.php" />
-        <option value="$PROJECT_DIR$/_reserve.php" />
-        <option value="$PROJECT_DIR$/_calendar.php" />
         <option value="$PROJECT_DIR$/__register.php" />
+        <option value="$PROJECT_DIR$/SQL_Insert/insertRentalDetail.php" />
+        <option value="$PROJECT_DIR$/SQL_Update/updateRentStatus.php" />
+        <option value="$PROJECT_DIR$/__PDF_booking_cost.php" />
+        <option value="$PROJECT_DIR$/_reserve.php" />
+        <option value="$PROJECT_DIR$/_reserve_payment.php" />
+        <option value="$PROJECT_DIR$/_calendar.php" />
       </list>
     </option>
   </component>
@@ -345,12 +348,12 @@
       <workItem from="1557550959313" duration="6342000" />
       <workItem from="1557662003476" duration="7731000" />
       <workItem from="1557720961257" duration="9342000" />
-      <workItem from="1557730920938" duration="24571000" />
+      <workItem from="1557730920938" duration="28306000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="199641000" />
+    <option name="totallyTimeSpent" value="203376000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -618,32 +621,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_reserve_list_customer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="196" column="93" selection-start-line="196" selection-start-column="93" selection-end-line="196" selection-end-column="93" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SQL_Insert/insertImportList.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/SQL_Insert/insertBookDetail.php">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SQL_Insert/insertRentalDetail.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="29" column="31" lean-forward="true" selection-start-line="29" selection-start-column="31" selection-end-line="29" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SQL_Update/updateRentStatus.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="13" lean-forward="true" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/_room-master-result.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -659,16 +641,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="372">
           <caret line="131" column="155" selection-start-line="131" selection-start-column="155" selection-end-line="131" selection-end-column="155" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_checkIn.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-23">
-          <caret line="117" column="40" lean-forward="true" selection-start-line="117" selection-start-column="40" selection-end-line="117" selection-end-column="114" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -718,41 +690,71 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_reserve_payment.php">
+    <entry file="file://$PROJECT_DIR$/_checkIn.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="146" column="27" lean-forward="true" selection-start-line="146" selection-start-column="27" selection-end-line="146" selection-end-column="27" />
+        <state relative-caret-position="740">
+          <caret line="117" column="40" lean-forward="true" selection-start-line="117" selection-start-column="40" selection-end-line="117" selection-end-column="114" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/__register.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="727">
+          <caret line="281" column="45" lean-forward="true" selection-start-line="281" selection-start-column="45" selection-end-line="281" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SQL_Insert/insertRentalDetail.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="24" column="13" lean-forward="true" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SQL_Update/updateRentStatus.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="62" selection-start-line="19" selection-start-column="62" selection-end-line="19" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_reserve_list_customer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="196" column="93" selection-start-line="196" selection-start-column="93" selection-end-line="196" selection-end-column="93" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/_reserve.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="141" column="33" selection-start-line="141" selection-start-column="33" selection-end-line="141" selection-end-column="33" />
+        <state relative-caret-position="238">
+          <caret line="34" column="62" lean-forward="true" selection-start-line="34" selection-start-column="62" selection-end-line="36" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_reserve_payment.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="35" column="30" selection-start-line="35" selection-start-column="30" selection-end-line="35" selection-end-column="30" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/__PDF_booking_cost.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="113" column="26" lean-forward="true" selection-start-line="113" selection-start-column="26" selection-end-line="113" selection-end-column="26" />
+        <state relative-caret-position="202">
+          <caret line="66" lean-forward="true" selection-start-line="66" selection-end-line="66" />
           <folding>
             <element signature="n#convert#0;n#!!top" />
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/_calendar.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-321">
-          <caret line="448" column="76" selection-start-line="448" selection-start-column="76" selection-end-line="448" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/__register.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="161" column="38" selection-start-line="161" selection-start-column="38" selection-end-line="161" selection-end-column="38" />
+        <state relative-caret-position="407">
+          <caret line="192" column="37" selection-start-line="192" selection-start-column="37" selection-end-line="192" selection-end-column="37" />
         </state>
       </provider>
     </entry>

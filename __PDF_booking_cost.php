@@ -104,12 +104,12 @@ if(isset($_GET['payment'])){
                 <div class="row">
                     <div class="col-4">
                     <span>
-                        <b>วันที่ Check In</b> : <?php echo $rental['check_in'] ?>
+                        <b>วันที่ Check In</b> : <?php echo $rental['check_in'] ?> <b>เวลา</b> : <?php echo $rental['check_in_time'] ?>
                     </span>
                     </div>
                     <div class="col-4">
                         <span>
-                            <b>วันที่ Check Out</b> : <?php echo $rental['check_out'] ?>
+                            <b>วันที่ Check Out</b> : <?php echo $rental['check_out'] ?> <b>เวลา</b> : <?php echo $rental['check_out_time'] ?>
                         </span>
                     </div>
                     <div class="col-4">

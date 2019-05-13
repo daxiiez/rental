@@ -179,7 +179,9 @@ if (isset($_GET['selectedYear'])) {
             $("#endDate").val(endDate)
             $("#totalDate").val(totalDate)
             $("#totalNight").val(totalDate-1)
-            $("#totalCost").val(Number(totalDate) * Number(cost))
+            let totalCost = Number(totalDate) * Number(cost);
+            $("#totalCost").val(totalCost);
+            $("#depositTxt").html("กรุณาชำระเงิน "+(totalCost/2)+" บาท หรือมากกว่า");
             $("#deposit").removeAttr("disabled");
         } else {
 
@@ -188,6 +190,7 @@ if (isset($_GET['selectedYear'])) {
             $("#endDate").val("")
             $("#totalDate").val("")
             $("#totalCost").val("")
+            $("#depositTxt").html("")
             $("#totalNight").val("")
         }
         //$("#reserveDate").html("<h3>" + txt + "</h3>");
@@ -373,13 +376,15 @@ if (isset($_GET['selectedYear'])) {
                         <div class="container">
 
                             <div class="row text-center">
-                                <div class="col-3"><label>ตั้งแต่วันที่ </label>
+                                <div class="col-3"><label>วันที่ Check In </label>
                                     <input name="startDate" id="startDate"
                                            class="form-control"
-                                           placeholder="ยังไม่ได้เลือกวันที่" readonly required></div>
-                                <div class="col-3"><label> ถึงวันที่</label>
+                                           placeholder="ยังไม่ได้เลือกวันที่" readonly required><small>เวลาที่ Check In : ตั้งแต่ 13:00 นาฬิกา เป็นต้นไป</small></div>
+
+                                <div class="col-3"><label> วันที่ Check Out</label>
                                     <input name="endDate" id="endDate"
                                            class="form-control" placeholder="ยังไม่ได้เลือกวันที่" readonly required>
+                                    <small>เวลาที่ Check Out : ไม่เกิน 12:00 นาฬิกา</small>
                                 </div>
                                 <div class="col-3"><label>จำนวนวันรวม </label>
                                     <input name="totalDate" id="totalDate"
@@ -401,6 +406,7 @@ if (isset($_GET['selectedYear'])) {
                                     <input name="deposit" id="deposit"
                                            class="form-control" placeholder="50% ของราคาทั้งหมด"
                                            onchange="checkDeposit()" disabled required>
+                                    <small id="depositTxt"></small>
                                 </div>
                                 <div class="col-3"><label>คงเหลือ </label>
                                     <input name="balance" id="balance"

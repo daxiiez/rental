@@ -32,6 +32,8 @@ $sql = "SELECT rental_id,
                rent_days,
                DATE_FORMAT(check_in,'%d/%m/%Y') as check_in,
                DATE_FORMAT(check_out,'%d/%m/%Y') as check_out,
+               check_in_time,
+               check_out_time,
                rent_cost,
                deposit,
                status,
@@ -125,12 +127,12 @@ include '__navbar_admin.php';
             <div class="row">
                 <div class="col-4">
                     <span>
-                        <b>วันที่ Check In</b> : <?php echo $rental['check_in'] ?>
+                        <b>วันที่ Check In</b> : <?php echo $rental['check_in'] ?> <b>เวลา</b> : <?php echo $rental['check_in_time'] ?>
                     </span>
                 </div>
                 <div class="col-4">
                         <span>
-                            <b>วันที่ Check Out</b> : <?php echo $rental['check_out'] ?>
+                            <b>วันที่ Check Out</b> : <?php echo $rental['check_out'] ?> <b>เวลา</b> : <?php echo $rental['check_out_time'] ?>
                         </span>
                 </div>
             </div>
