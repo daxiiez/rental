@@ -73,6 +73,11 @@ require_once __DIR__ . '/vendor/autoload.php';
 include '__header.php';
 $mpdf = new \Mpdf\Mpdf();
 
+if(isset($_GET['payment'])){
+    $sqlPayment = "UPDATE rental_detail set deposit = rent_cost where rental_id = $rental_id";
+    $queryPayment = mysqli_query($conn,$sqlPayment);
+}
+
 ?>
 <html>
 <body style="background: white;">
@@ -131,6 +136,16 @@ $mpdf = new \Mpdf\Mpdf();
                     </span>
                     </div>
                 </div>
+<br>
+                <?php
+                if (isset($_GET['payment'])) {
+                    ?>
+                    <span>
+                        <b>ชำระเงินคงเหลือ (บาท)</b> : <?php echo $rental['rent_cost'] - $rental['deposit'] ?>
+                  </span>
+                    <?php
+                }
+                ?>
                 <br>
                 <hr>
                 <h4 class="font-weight-bold">ข้อมูลผู้จอง</h4>
@@ -154,6 +169,8 @@ $mpdf = new \Mpdf\Mpdf();
                 </div>
 
                 <hr>
+
+
                 <br>
 
                 <div class="row">

@@ -26,9 +26,22 @@
                     <li class="nav-item">
                         <a class="nav-link" href="_reserve_list.php">รายการจอง</a>
                     </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="_information.php">ประชาสัมพันธ์</a>
                     </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="_checkIn.php">Check In</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="_checkOut.php">Check Out</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="_report_list.php">รายงานผู้เข้าพักประจำเดือน</a>
+                    </li>
+
 
                 <?php }
             } ?>
@@ -46,21 +59,19 @@
                         ?>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+
                         <?php
-                        if (isset($_SESSION['reserveStatus'])) {
-                            if (($_SESSION['reserveStatus'] == 'N' || $_SESSION['reserveStatus'] == 'W') && $_SESSION['type'] == 'M') {
+                        if (isset($_SESSION['type'])) {
+                            if ($_SESSION['type'] != 'A') {
                                 ?>
-                                <a class="dropdown-item" href="_reserve.php">
-                                    <i class="fa fa-exclamation-triangle"></i> ชำระรายการจอง</a>
-                                <?php
-                            } elseif ($_SESSION['reserveStatus'] == 'S') {
-                                ?>
-                                <a class="dropdown-item" href="_reserve.php">
-                                    <i class="fa fa-list"></i> รายละเอียดการเข้าพัก</a>
+                                <a class="dropdown-item" href="_reserve_list_customer.php">
+                                    <i class="fa fa-check-circle"></i> ตรวจสอบรายการจอง</a>
                                 <?php
                             }
                         }
                         ?>
+
+
                         <a class="dropdown-item" href="__register.php?viewProfile=1">
                             <i class="fa fa-user-circle-o"></i> Profile</a>
                     </div>

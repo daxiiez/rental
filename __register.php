@@ -2,6 +2,7 @@
 include '__connect.php';
 $address = '';
 $tel = '';
+$title = '';
 $lineId = '';
 $password = '';
 $name = '';
@@ -22,9 +23,10 @@ if (isset($_POST['insertRegis'])) {
     $lineId = $_POST['lineId'];
     $password = $_POST['password'];
     $username = $_POST['username'];
-    $email = $_POST['email'];
-    $sql = "INSERT INTO rental.user (username, password, type, name, tel, address, line_id, email) 
-VALUES ('$username', '$password', '$type', '$name', '$tel', '$address', '$lineId', '$email')";
+    $email = $_POST['emailProfile'];
+    $title = $_POST['titleProfile'];
+    $sql = "INSERT INTO rental.user (username, password, type, name, tel, address, line_id, email,title) 
+VALUES ('$username', '$password', '$type', '$name', '$tel', '$address', '$lineId', '$email','$title')";
     $query = mysqli_query($conn, $sql);
     if ($query) {
         if (!isset($_SESSION['username'])) {
@@ -42,19 +44,20 @@ VALUES ('$username', '$password', '$type', '$name', '$tel', '$address', '$lineId
     }
 }
 if (isset($_POST['updateProfile'])) {
-
     $name = $_POST['name'];
     $address = $_POST['address'];
     $tel = $_POST['tel'];
     $lineId = $_POST['lineId'];
     $username = $_POST['username'];
     $type = $_POST['type'];
-    $email = $_POST['email'];
+    $email = $_POST['emailProfile'];
+    $title = $_POST['titleProfile'];
     $sql = "UPDATE user set 
                             name = '$name',
                             address = '$address',
                             tel='$tel',
                             line_id='$lineId',
+                            title='$title',
                             email = '$email'
                             where username = '$username'";
     $query = mysqli_query($conn, $sql);
@@ -89,7 +92,10 @@ if (isset($_GET['viewProfile'])) {
     $name = $profile['name'];
     $username = $profile['username'];
     $type = $profile['type'];
-    $email = $profile['email'];
+    $title = $profile['title'];
+    if ($email == '') {
+        $email = $profile['email'];
+    }
 }
 ?>
 <!Document>
@@ -118,6 +124,11 @@ include '__navbar_admin.php';
             $("#alertPass").html("");
         }
     }
+
+    function setTitle(title) {
+        $("#btn-title").html(title);
+        $("#titleProfile").val(title);
+    }
 </script>
 <div class="container-fluid" style="margin-top: 10px; margin-bottom: 150px;">
     <div class="card">
@@ -136,7 +147,9 @@ include '__navbar_admin.php';
                         <div class="col-6">
                             <div class="form-group">
                                 <label class="font-weight-bold">ชื่อผู้ใช้</label>
-                                <input class="form-control" name="username" id="username"
+                                <input class="form-control" pattern="[A-Za-z]{8,10}" name="username"
+                                       placeholder="กรุณากรอกชื่อผู้ใช้ภาษาอังกฤษ 8 ตัวขึ้นไป"
+                                       id="username"
                                     <?php if ($viewProfile) {
                                         echo 'readonly ';
                                         echo 'value="' . $username . '"';
@@ -147,11 +160,40 @@ include '__navbar_admin.php';
                         <div class="col-6">
                             <div class="form-group">
                                 <label class="font-weight-bold">ชื่อ-สกุล</label>
-                                <input class="form-control" name="name" id="name"
-                                    <?php if ($viewProfile) {
-                                        echo 'value="' . $name . '"';
-                                    } ?>
-                                       required>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <button class="btn btn-info dropdown-toggle" type="button"
+                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                         <span id="btn-title">
+                                             <?php
+                                             if ($title != '') {
+                                                 echo $title;
+                                             } else {
+                                                 echo 'นาย';
+                                             }
+                                             ?>
+                                             </span>
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" onclick="setTitle('นาย')">นาย</a>
+                                            <a class="dropdown-item" onclick="setTitle('นาง')">นาง</a>
+                                            <a class="dropdown-item" onclick="setTitle('นางสาว')">นางสาว</a>
+                                        </div>
+                                    </div>
+                                    <input type="hidden" name="titleProfile" id="titleProfile" value="<?php
+                                    if ($title != '') {
+                                        echo $title;
+                                    } else {
+                                        echo 'นาย';
+                                    }
+                                    ?>">
+                                    <input class="form-control" name="name" id="name"
+                                           placeholder="กรุณากรอกชื่อภาษาไทย 8 ตัวขึ้นไป"
+                                        <?php if ($viewProfile) {
+                                            echo 'value="' . $name . '"';
+                                        } ?>
+                                           required>
+                                </div>
                             </div>
                         </div>
                         <?php if (!$viewProfile) {
@@ -160,14 +202,15 @@ include '__navbar_admin.php';
                                 <div class="form-group">
                                     <label class="font-weight-bold">รหัสผ่าน</label>
                                     <input type="password" class="form-control" name="password" id="password"
-
+                                           placeholder="กรุณากรอกรหัสผ่าน 8 ตัวขึ้นไป"
                                            required>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="form-group">
-                                    <label class="font-weight-bold">คอนเฟิร์มรหัสผ่าน</label>
+                                    <label class="font-weight-bold">ยืนยันรหัสผ่าน</label>
                                     <input type="password" onchange="checkPassword()" class="form-control"
+                                           placeholder="กรุณากรอกรหัสผ่าน 8 ตัวขึ้นไป"
                                            name="cpassword"
                                            id="cpassword" required>
                                     <small class="text-danger" id="alertPass"></small>
@@ -179,6 +222,7 @@ include '__navbar_admin.php';
                             <div class="form-group">
                                 <label class="font-weight-bold">โทรศัพท์</label>
                                 <input class="form-control" name="tel" id="tel"
+                                       placeholder="กรุณากรอกเบอร์ 10 หลัก 0xx-xxxxxxx"
                                     <?php if ($viewProfile) {
                                         echo 'value="' . $tel . '"';
                                     } ?>
@@ -198,9 +242,11 @@ include '__navbar_admin.php';
                         <div class="col-6">
                             <div class="form-group">
                                 <label class="font-weight-bold">อีเมล</label>
-                                <input class="form-control" name="email" id="email"
+                                <input class="form-control" type="email" placeholder="กรุณากรอก email เช่น emailname@website.com"
+                                       pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" name="emailProfile"
+                                       id="emailProfile"
                                     <?php if ($viewProfile) {
-                                        echo 'value="' . $lineId . '"';
+                                        echo 'value="' . $email . '"';
                                     } ?>
                                 >
                             </div>
@@ -228,8 +274,11 @@ include '__navbar_admin.php';
                         <div class="col-6">
                             <div class="form-group">
                                 <label class="font-weight-bold">Address</label>
-                                <textarea class="form-control" name="address" id="address"  required><?php if ($viewProfile) {
-                                        echo  $address;
+                                <textarea class="form-control" name="address"
+                                          placeholder="กรุณากรอกที่อยู่ จังหวัด อำเภอ ตำบล หมู่บ้าน เลขที่ รหัสไปรษณีย์ ให้ชัดเจน"
+                                          id="address"
+                                          required><?php if ($viewProfile) {
+                                        echo $address;
                                     } ?></textarea>
                             </div>
                         </div>

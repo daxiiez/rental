@@ -284,11 +284,18 @@ include '__navbar_admin.php';
             </div>
 
         </div>
+        <script>
+            function payment(rental_id) {
+                if(confirm('ยืนยันการชำระเงิน และ พิมพ์ใบเสร็จ?')){
+                    window.location = "__PDF_booking_cost.php?rental_id="+rental_id+"&payment=Y";
+                }
+
+            }
+        </script>
         <div class="card-footer">
             <div align="center">
-                <a class="btn btn-info" target="_blank"
-                   href="__PDF_booking_cost.php?rental_id=<?php echo $rental['rental_id']; ?>"><i
-                            class="fa fa-print"></i> พิมพ์รายการ</a>
+                <a class="btn btn-info" target="_blank" onclick="payment('<?php echo $rental['rental_id']?>')"><i
+                            class="fa fa-print"></i> ชำระเงินและพิมพ์รายการ</a>
             </div>
         </div>
     </div>

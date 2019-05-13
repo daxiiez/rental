@@ -11,8 +11,9 @@ r.room_id,
 u.name,
 r.status,
 DATE_FORMAT(rent_date,'%d/%m/%Y') as rent_date,
-DATE_FORMAT(check_in,'%d/%m/%Y') as check_in,
-DATE_FORMAT(check_out,'%d/%m/%Y') as check_out,
+DATE_FORMAT(check_in,'%d/%m/%Y %T') as check_in,
+DATE_FORMAT(check_out,'%d/%m/%Y %T') as check_out,
+r.rent_days,
 r.deposit,
 r.pay_img,
 r.rent_cost
@@ -64,6 +65,7 @@ include '__navbar_admin.php';
                         <th>ผู้จอง</th>
                         <th>Check In</th>
                         <th>Check Out</th>
+                        <th>จำนวนวันที่เข้าพัก</th>
                         <th>ราคาทั้งหมด/ค้างชำระ(บาท)</th>
                         <th>สถานะ</th>
                         <th>จัดการ</th>
@@ -75,12 +77,15 @@ include '__navbar_admin.php';
                     while ($temp = mysqli_fetch_array($query, MYSQLI_ASSOC)) {
                         ?>
                         <tr>
-                            <td><a href="_reserve.php?rental_id=<?php echo $temp['rental_id']; ?>"><?php echo $temp['rental_id']; ?></a></td>
+                            <td>
+                                <a href="_reserve.php?rental_id=<?php echo $temp['rental_id']; ?>"><?php echo $temp['rental_id']; ?></a>
+                            </td>
                             <td><?php echo $temp['rent_date']; ?></td>
                             <td><?php echo $temp['room_id']; ?></td>
                             <td><?php echo $temp['name']; ?></td>
                             <td><?php echo $temp['check_in']; ?></td>
                             <td><?php echo $temp['check_out']; ?></td>
+                            <td><?php echo $temp['rent_days']; ?></td>
                             <td class="text-center"><?php echo $temp['rent_cost'] . '/' . ($temp['rent_cost'] - $temp['deposit']); ?></td>
                             <td><?php
                                 if ($temp['status'] == 'N') {
@@ -99,7 +104,12 @@ include '__navbar_admin.php';
                                 } elseif ($temp['status'] == 'S') {
                                     echo '<span class="badge badge-success">พร้อมให้เข้าพัก</span>';
                                 } elseif ($temp['status'] == 'C') {
-                                    echo '<span class="badge badge-secondary">ถูกยกเลิกแล้ว</span>';}
+                                    echo '<span class="badge badge-secondary">ถูกยกเลิกแล้ว</span>';
+                                } elseif ($temp['status'] == 'I') {
+                                    echo '<span class="badge badge-primary">Check In เข้ามาแล้ว</span>';
+                                } elseif ($temp['status'] == 'O') {
+                                    echo '<span class="badge badge-warning">Check Out ไปแล้ว</span>';
+                                }
 
                                 ?></td>
                             <td class="text-center">
@@ -123,7 +133,8 @@ include '__navbar_admin.php';
                                     }
                                     if ($temp['status'] == 'N' || $temp['status'] == 'W') { ?>
                                         <button class="btn btn-outline-danger btn-sm"
-                                                onclick="setStatus('<?php echo $temp['rental_id'] ?>','C')">ยกเลิก</button>
+                                                onclick="setStatus('<?php echo $temp['rental_id'] ?>','C')">ยกเลิก
+                                        </button>
                                         <?php
                                     }
                                     ?>
