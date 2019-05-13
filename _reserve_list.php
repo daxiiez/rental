@@ -11,8 +11,10 @@ r.room_id,
 u.name,
 r.status,
 DATE_FORMAT(rent_date,'%d/%m/%Y') as rent_date,
-DATE_FORMAT(check_in,'%d/%m/%Y %T') as check_in,
-DATE_FORMAT(check_out,'%d/%m/%Y %T') as check_out,
+DATE_FORMAT(check_in,'%d/%m/%Y') as check_in,
+DATE_FORMAT(check_out,'%d/%m/%Y') as check_out,
+r.check_in_time,
+r.check_out_time,
 r.rent_days,
 r.deposit,
 r.pay_img,
@@ -83,8 +85,8 @@ include '__navbar_admin.php';
                             <td><?php echo $temp['rent_date']; ?></td>
                             <td><?php echo $temp['room_id']; ?></td>
                             <td><?php echo $temp['name']; ?></td>
-                            <td><?php echo $temp['check_in']; ?></td>
-                            <td><?php echo $temp['check_out']; ?></td>
+                            <td><?php echo $temp['check_in'].' '.$temp['check_in_time']; ?></td>
+                            <td><?php echo $temp['check_out'].' '.$temp['check_out_time']; ?></td>
                             <td><?php echo $temp['rent_days']; ?></td>
                             <td class="text-center"><?php echo $temp['rent_cost'] . '/' . ($temp['rent_cost'] - $temp['deposit']); ?></td>
                             <td><?php

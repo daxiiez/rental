@@ -12,6 +12,7 @@ if (isset($_POST['uploadImg'])) {
         echo '<script>alert("อัพโหลดสำเร็จ!")</script>';
     }
 }
+
 $username='';
 
 if(isset($_GET['username']) && $_SESSION['type']=='A'){
@@ -40,7 +41,7 @@ if($_SESSION['type']=='A' && isset($_GET['rental_id'])){
     $sql .= "and rental_id ='$rental_id'";
 }else if(isset($_GET['rental_id'])){
     $sql .= "and username ='$username' and rental_id ='$rental_id'";
-}else if(isset($_GET['username']) && $_SESSION['type']!='A'){
+}else if(isset($_GET['username'])){
     $sql .= "and username ='$username' order by rental_id desc ";
 }
 $query = mysqli_query($conn, $sql);

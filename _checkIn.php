@@ -25,6 +25,18 @@ if (isset($_GET['roomIdSearch'])) {
     }
 }
 ?>
+<script>
+    $(document).ready(() => {
+        setInterval(() => {
+            let h = (new Date().getHours()) + '';
+            let m = (new Date().getMinutes()) + '';
+            let s = (new Date().getSeconds()) + '';
+            let time = h.padStart(2, '0') + ":" + m.padStart(2, '0') + ":" + s.padStart(2, '0');
+            $("#timer").val(time);
+        }, 1000)
+
+    })
+</script>
 
 <div class="container-fluid" style="margin-top: 10px; margin-bottom: 150px;">
     <div class="card">
@@ -50,6 +62,16 @@ if (isset($_GET['roomIdSearch'])) {
                             </div>
                         </form>
 
+                        <hr>
+
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="form-group">
+                                    <label class="col-form-label">เวลา Check In</label>
+                                    <input class="form-control" name="timer" id="timer" value="">
+                                </div>
+                            </div>
+                        </div>
                         <hr>
                         <?php
                         if ($roomIdSearch != '') {
@@ -101,12 +123,14 @@ if (isset($_GET['roomIdSearch'])) {
                                             <span class="badge badge-danger">กรุณาชำระเงินที่เหลือ <?php echo $temp['rent_cost'] - $temp['deposit'] ?> บาท
                                        </span>
                                             <br>
-                                            <a href="_reserve_payment.php?rental_id=<?php echo $temp['rental_id']?>" class="badge badge-warning">ชำระเงิน</a>
+                                            <a href="_reserve_payment.php?rental_id=<?php echo $temp['rental_id'] ?>"
+                                               class="badge badge-warning">ชำระเงิน</a>
                                             <?php
                                         } else {
                                             ?>
-                                           <a href="_reserve.php?rental_id=<?php echo $temp['rental_id']?>"><span class="badge btn-success">ชำระเงินเรียบร้อยแล้ว <i
-                                                        class="fa fa-check"></i></span></a>
+                                            <a href="_reserve.php?rental_id=<?php echo $temp['rental_id'] ?>"><span
+                                                        class="badge btn-success">ชำระเงินเรียบร้อยแล้ว <i
+                                                            class="fa fa-check"></i></span></a>
                                             <?php
                                         }
                                         ?>

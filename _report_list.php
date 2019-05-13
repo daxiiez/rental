@@ -57,7 +57,7 @@ include '__navbar_admin.php';
             "พฤศจิกายน",
             "ธันวาคม"];
         month.forEach((f, i) => {
-            txt += "<option value='" + (Number(i)+1) + "'>" + f + "</option>";
+            txt += "<option value='" + (Number(i) + 1) + "'>" + f + "</option>";
         });
         $("#month").html(txt);
         $("#month").val(monthVal);
@@ -103,7 +103,7 @@ include '__navbar_admin.php';
                 $count++;
             }
             ?>
-            <h3>รวมผู้เข้าพัก : <label class="badge badge-primary"><?php echo $count?> คน</label></h3>
+            <h3>รวมผู้เข้าพัก : <label class="badge badge-primary"><?php echo $count ?> คน</label></h3>
             <div class="row">
 
 
@@ -136,42 +136,89 @@ include '__navbar_admin.php';
                         <div class="card" style="margin-bottom: 10px;">
                             <h4 class="card-header bg-success text-white text-center font-weight-bold">
                                 ห้อง <?php echo $temp['room_id'] ?></h4>
+
                             <div class="card-body">
                                 <h5 class="card-title font-weight-bold">สถานะ : <?php echo $span; ?></h5>
-                                <div class="input-group input-group-sm">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text bg-primary text-white" id="inputGroup-sizing-sm">ชื่อผู้จอง</span>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="input-group input-group-sm" style="margin-bottom: 10px;">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text bg-primary text-white"
+                                                      id="inputGroup-sizing-sm">ชื่อผู้จอง</span>
+                                            </div>
+                                            <input type="text"
+                                                   value="<?php echo $profile['title'] . ' ' . $profile['name'] ?>"
+                                                   class="form-control bg-white" aria-label="Small"
+                                                   aria-describedby="inputGroup-sizing-sm" readonly>
+                                        </div>
                                     </div>
-                                    <input type="text" value="<?php echo $profile['title'] . ' ' . $profile['name'] ?>"
-                                           class="form-control bg-white" aria-label="Small"
-                                           aria-describedby="inputGroup-sizing-sm" readonly>
-                                </div>
-                                <br>
-                                <div class="input-group input-group-sm">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text bg-primary text-white" id="inputGroup-sizing-sm">Check In</span>
+
+                                    <div class="col-12">
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="input-group input-group-sm" style="margin-bottom: 10px;">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text bg-primary text-white"
+                                                              id="inputGroup-sizing-sm">วันที่ Check In</span>
+                                                    </div>
+                                                    <input type="text" value="<?php echo $temp['check_in'] ?>"
+                                                           class="form-control bg-white" aria-label="Small"
+                                                           aria-describedby="inputGroup-sizing-sm" readonly>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="input-group input-group-sm" style="margin-bottom: 10px;">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text bg-primary text-white"
+                                                              id="inputGroup-sizing-sm">เวลา Check In</span>
+                                                    </div>
+                                                    <input type="text" value="<?php echo $temp['check_in_time'] ?>"
+                                                           class="form-control bg-white" aria-label="Small"
+                                                           aria-describedby="inputGroup-sizing-sm" readonly>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <input type="text" value="<?php echo $temp['check_in'] ?>"
-                                           class="form-control bg-white" aria-label="Small"
-                                           aria-describedby="inputGroup-sizing-sm" readonly>
-                                </div>
-                                <br>
-                                <div class="input-group input-group-sm">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text bg-primary text-white" id="inputGroup-sizing-sm">Check Out</span>
+
+                                    <div class="col-12">
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="input-group input-group-sm" style="margin-bottom: 10px;">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text bg-primary text-white"
+                                                              id="inputGroup-sizing-sm">วันที่ Check Out</span>
+                                                    </div>
+                                                    <input type="text" value="<?php echo $temp['check_out'] ?>"
+                                                           class="form-control bg-white" aria-label="Small"
+                                                           aria-describedby="inputGroup-sizing-sm" readonly>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="input-group input-group-sm" style="margin-bottom: 10px;">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text bg-primary text-white"
+                                                              id="inputGroup-sizing-sm">เวลา Check Out</span>
+                                                    </div>
+                                                    <input type="text" value="<?php echo $temp['check_out_time'] ?>"
+                                                           class="form-control bg-white" aria-label="Small"
+                                                           aria-describedby="inputGroup-sizing-sm" readonly>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <input type="text" value="<?php echo $temp['check_in'] ?>"
-                                           class="form-control bg-white" aria-label="Small"
-                                           aria-describedby="inputGroup-sizing-sm" readonly>
-                                </div>
-                                <br>
-                                <div class="input-group input-group-sm">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text bg-primary text-white" id="inputGroup-sizing-sm">จำนวนวันเข้าพัก</span>
+
+                                    <div class="col-12">
+
+                                        <div class="input-group input-group-sm" >
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text bg-primary text-white"
+                                                      id="inputGroup-sizing-sm">จำนวนวันเข้าพัก</span>
+                                            </div>
+                                            <input type="text" value="<?php echo $temp['rent_days'] ?>"
+                                                   class="form-control bg-white" aria-label="Small"
+                                                   aria-describedby="inputGroup-sizing-sm" readonly>
+                                        </div>
                                     </div>
-                                    <input type="text" value="<?php echo $temp['rent_days'] ?>"
-                                           class="form-control bg-white" aria-label="Small"
-                                           aria-describedby="inputGroup-sizing-sm" readonly>
                                 </div>
                                 <br>
                                 <div align="center">

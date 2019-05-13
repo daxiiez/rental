@@ -25,7 +25,18 @@ if(isset($_GET['roomIdSearch'])){
     }
 }
 ?>
+<script>
+    $(document).ready(() => {
+        setInterval(() => {
+            let h = (new Date().getHours()) + '';
+            let m = (new Date().getMinutes()) + '';
+            let s = (new Date().getSeconds()) + '';
+            let time = h.padStart(2, '0') + ":" + m.padStart(2, '0') + ":" + s.padStart(2, '0');
+            $("#timer").val(time);
+        }, 1000)
 
+    })
+</script>
 <div class="container-fluid" style="margin-top: 10px; margin-bottom: 150px;">
     <div class="card">
         <div class="row">
@@ -48,6 +59,16 @@ if(isset($_GET['roomIdSearch'])){
                             </div>
                         </form>
 
+                        <hr>
+
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="form-group">
+                                    <label class="col-form-label">เวลา Check Out</label>
+                                    <input class="form-control" name="timer" id="timer" value="">
+                                </div>
+                            </div>
+                        </div>
                         <hr>
                         <?php
                         if($roomIdSearch!=''){
@@ -75,12 +96,12 @@ if(isset($_GET['roomIdSearch'])){
                             $check_out = date_format(date_create($temp['check_out']), 'd-m-Y');
                             if ($temp['check_in'] == $currentDate) {
                                 $status = 'Y';
-                                $txt = 'Check In วันนี้';
+                                $txt = 'วันนี้';
                                 $css = 'warning';
                             } else {
                                 $css = 'secondary';
                                 $status = 'N';
-                                $txt = 'Check In วันที่ ' . $check_in;
+                                $txt = $check_in;
                             }
                             if ($check_out == $currentDate) {
                                 $statusO = 'Y';
@@ -100,8 +121,10 @@ if(isset($_GET['roomIdSearch'])){
                                             ?></strong><br> <strong>ห้องที่จอง </strong>
                                         <h3 class="badge badge-success"><?php
                                             echo $temp['room_id'];
-                                            ?></h3><br> <span class="font-weight-bold ">สถานะ</span> <label
-                                                class="badge badge-secondary"><?php echo $txt; ?></label>
+                                            ?></h3><br> <span class="font-weight-bold ">วันที่ Check In</span><label
+                                                class="badge badge-secondary"><?php echo $txt; ?> </label> <span class="font-weight-bold">เวลา</span> <label
+                                                class="badge badge-secondary"> <?php echo $temp['check_in_time']; ?>  </label>
+
                                         <br>
                                         <span class="font-weight-bold ">กำหนด Check Out :</span> <label
                                                 class="badge badge-secondary"><?php echo $txtO; ?></label>

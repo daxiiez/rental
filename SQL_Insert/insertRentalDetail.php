@@ -12,7 +12,7 @@ if ($_POST) {
     $check_out = $_POST['endDate'];
     $rent_cost = $_POST['totalCost'];
     $deposit = $_POST['deposit'];
-    $sql = "INSERT INTO rental.rental_detail (rental_id, rent_date, room_id, username, rent_days, check_in, check_out, rent_cost, deposit, status, pay_img,check_out_status)
+    $sql = "INSERT INTO rental.rental_detail (rental_id, rent_date, room_id, username, rent_days, check_in, check_out, rent_cost, deposit, status, pay_img,check_out_status,check_in_time,check_out_time)
  select ifnull(LPAD(CAST(max(rental_id) + 1 AS SIGNED), 10, '0') ,LPAD('1', 10, '0')),
   now(),
    '$room_id',
@@ -24,7 +24,9 @@ if ($_POST) {
         $deposit,
          'N',
           '0x',
-          'N'
+          'N',
+          '',
+          ''
            from rental_detail";
     $_SESSION['reserveStatus'] = 'N';
     $query = mysqli_query($conn, $sql);
