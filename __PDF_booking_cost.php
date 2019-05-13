@@ -64,6 +64,11 @@ $query = mysqli_query($conn, $sql);
 $rental = mysqli_fetch_assoc($query);
 $status = $rental['status'];
 
+if(isset($_GET['payment'])){
+    $sqlPayment = "UPDATE rental_detail set deposit = rent_cost where rental_id = $rental_id";
+    $queryPayment = mysqli_query($conn,$sqlPayment);
+    $username = $rental['username'];
+}
 
 $sql = "select * from user where username = '$username'";
 $query = mysqli_query($conn, $sql);
@@ -73,11 +78,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 include '__header.php';
 $mpdf = new \Mpdf\Mpdf();
 
-if(isset($_GET['payment'])){
-    $sqlPayment = "UPDATE rental_detail set deposit = rent_cost where rental_id = $rental_id";
-    $queryPayment = mysqli_query($conn,$sqlPayment);
-    $username = $queryPayment['username'];
-}
+
 
 ?>
 <html>
