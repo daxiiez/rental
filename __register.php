@@ -141,6 +141,16 @@ include '__navbar_admin.php';
                 echo $resultMsg;
             }
             ?>
+            <script>
+                function checkUsername() {
+                    let letterNumber = /^[0-9a-zA-Z]+$/;
+                   let name =  $("#username").val();
+                   if(!name.match(letterNumber)){
+                       $("#username").val("")
+                       alert("กรุณากรอก A-Z ด้วยตัวพิมพ์ใหญ่หรือพิมพ์เล็กเท่านั้น");
+                   }
+                }
+            </script>
             <form id="regisForm" method="post">
                 <div class="container">
                     <div class="row">
@@ -149,6 +159,8 @@ include '__navbar_admin.php';
                                 <label class="font-weight-bold">ชื่อผู้ใช้</label>
                                 <input class="form-control" pattern="[A-Za-z]{8,10}" name="username"
                                        placeholder="กรุณากรอกชื่อผู้ใช้ภาษาอังกฤษ 8 ตัวขึ้นไป"
+                                      
+                                       onchange="checkUsername()"
                                        id="username"
                                     <?php if ($viewProfile) {
                                         echo 'readonly ';
