@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dacaa058-ecae-410f-b366-2e64db850642" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/__PDF_booking_cost.php" beforeDir="false" afterPath="$PROJECT_DIR$/__PDF_booking_cost.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_checkIn.php" beforeDir="false" afterPath="$PROJECT_DIR$/_checkIn.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_checkOut.php" beforeDir="false" afterPath="$PROJECT_DIR$/_checkOut.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -60,8 +61,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/_checkIn.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="740">
-              <caret line="117" column="40" lean-forward="true" selection-start-line="117" selection-start-column="40" selection-end-line="117" selection-end-column="114" />
+            <state relative-caret-position="256">
+              <caret line="115" column="158" selection-start-line="115" selection-start-column="158" selection-end-line="115" selection-end-column="158" />
             </state>
           </provider>
         </entry>
@@ -75,7 +76,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/__PDF_booking_cost.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="389">
@@ -94,6 +95,15 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="340">
               <caret line="196" column="93" selection-start-line="196" selection-start-column="93" selection-end-line="196" selection-end-column="93" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/_checkOut.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="287">
+              <caret line="129" column="150" selection-start-line="129" selection-start-column="150" selection-end-line="129" selection-end-column="150" />
             </state>
           </provider>
         </entry>
@@ -117,15 +127,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="404">
               <caret line="28" column="20" lean-forward="true" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/__register.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="727">
-              <caret line="281" column="45" lean-forward="true" selection-start-line="281" selection-start-column="45" selection-end-line="281" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -181,6 +182,7 @@
       <find>จำนวนวันรวม</find>
       <find>$rental</find>
       <find>alert</find>
+      <find>__PDF_booking_cost</find>
     </findStrings>
     <replaceStrings>
       <replace>0</replace>
@@ -211,8 +213,6 @@
         <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
         <option value="$PROJECT_DIR$/_reserve_list_customer.php" />
         <option value="$PROJECT_DIR$/__navbar_admin.php" />
-        <option value="$PROJECT_DIR$/_checkIn.php" />
-        <option value="$PROJECT_DIR$/_checkOut.php" />
         <option value="$PROJECT_DIR$/_room-master-result.php" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/707ad2b1-04b9-4264-afe5-9c10787b42ba/console.sql" />
         <option value="$PROJECT_DIR$/_reserve_list.php" />
@@ -224,6 +224,8 @@
         <option value="$PROJECT_DIR$/_calendar.php" />
         <option value="$PROJECT_DIR$/SQL_Update/updateRentStatus.php" />
         <option value="$PROJECT_DIR$/__PDF_booking_cost.php" />
+        <option value="$PROJECT_DIR$/_checkIn.php" />
+        <option value="$PROJECT_DIR$/_checkOut.php" />
       </list>
     </option>
   </component>
@@ -330,12 +332,12 @@
       <workItem from="1557550959313" duration="6342000" />
       <workItem from="1557662003476" duration="7731000" />
       <workItem from="1557720961257" duration="9342000" />
-      <workItem from="1557730920938" duration="29982000" />
+      <workItem from="1557730920938" duration="30707000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="205052000" />
+    <option name="totallyTimeSpent" value="205777000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -616,13 +618,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_checkOut.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="131" column="155" selection-start-line="131" selection-start-column="155" selection-end-line="131" selection-end-column="155" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_room-master.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
@@ -666,13 +661,6 @@
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_checkIn.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="740">
-          <caret line="117" column="40" lean-forward="true" selection-start-line="117" selection-start-column="40" selection-end-line="117" selection-end-column="114" />
         </state>
       </provider>
     </entry>
@@ -737,6 +725,20 @@
             <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_checkIn.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="115" column="158" selection-start-line="115" selection-start-column="158" selection-end-line="115" selection-end-column="158" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_checkOut.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="287">
+          <caret line="129" column="150" selection-start-line="129" selection-start-column="150" selection-end-line="129" selection-end-column="150" />
         </state>
       </provider>
     </entry>

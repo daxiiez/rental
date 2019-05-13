@@ -113,8 +113,8 @@ if (isset($_GET['roomIdSearch'])) {
                                         <h3 class="badge badge-success"><?php
                                             echo $temp['room_id'];
                                             ?></h3><br> <span class="font-weight-bold ">สถานะ</span> <label
-                                                class="badge badge-secondary"><?php echo $txt; ?></label>
-                                        <br><strong>Check Out : </strong><?php echo $check_out; ?>
+                                                class="badge badge-secondary"><?php echo $txt; ?> </label><b>เวลา : </b> <?php echo $temp['check_in_time']; ?>
+                                        <br><strong>Check Out : </strong><?php echo $check_out; ?> <b>เวลา : </b> <?php echo $temp['check_out_time']; ?>
                                         (<?php echo $temp['rent_days']." วัน ".($temp['rent_days']-1)." คืน"; ?> )<br>
                                         <strong>การชำระเงิน : </strong>
                                         <?php

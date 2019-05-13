@@ -127,7 +127,7 @@ if(isset($_GET['roomIdSearch'])){
 
                                         <br>
                                         <span class="font-weight-bold ">กำหนด Check Out :</span> <label
-                                                class="badge badge-secondary"><?php echo $txtO; ?></label>
+                                                class="badge badge-secondary"><?php echo $txtO; ?></label> <b> เวลา : </b> <?php echo $temp['check_out_time']; ?>
                                         <br>
                                         <span><strong>จำนวนวันที่เข้าพัก : </strong><?php echo $temp['rent_days']." วัน ".($temp['rent_days']-1)." คืน"; ?></span>
                                     </div>
