@@ -23,7 +23,7 @@ if ($status == 'S') {
     $room_id = $rental['room_id'];
     $checkIn = $rental['check_in'];
     $checkOut = $rental['check_out'];
-    $sql = "SELECT * FROM rental_detail where room_id = '$room_id' and check_in between '$checkIn' and '$checkOut' and check_out between '$checkIn' and '$checkOut' ";
+    $sql = "SELECT * FROM rental_detail where rental_id!='$rent_id' and room_id = '$room_id' and check_in between '$checkIn' and '$checkOut' and check_out between '$checkIn' and '$checkOut' ";
     $query2 = mysqli_query($conn, $sql);
     if ($query2) {
         while ($temp = mysqli_fetch_array($query2)) {
