@@ -76,6 +76,7 @@ $mpdf = new \Mpdf\Mpdf();
 if(isset($_GET['payment'])){
     $sqlPayment = "UPDATE rental_detail set deposit = rent_cost where rental_id = $rental_id";
     $queryPayment = mysqli_query($conn,$sqlPayment);
+    $username = $queryPayment['username'];
 }
 
 ?>
