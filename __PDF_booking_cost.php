@@ -59,17 +59,16 @@ include '__connect.php';
 $rental_id = $_GET['rental_id'];
 $username = $_SESSION['username'];
 
-$sql = "SELECT * from rental_detail where rental_id = '$rental_id'";
+$sql = "SELECT *,date_format(rent_date,'%d-%m-%Y') as rent_date_txt ,date_format(check_in,'%d-%m-%Y') as check_in_txt ,date_format(check_out,'%d-%m-%Y') as check_out_txt  from rental_detail where rental_id = '$rental_id'";
 $query = mysqli_query($conn, $sql);
 $rental = mysqli_fetch_assoc($query);
 $status = $rental['status'];
 
-if(isset($_GET['payment'])){
+if (isset($_GET['payment'])) {
     $sqlPayment = "UPDATE rental_detail set deposit = rent_cost where rental_id = $rental_id";
-    $queryPayment = mysqli_query($conn,$sqlPayment);
+    $queryPayment = mysqli_query($conn, $sqlPayment);
     $username = $rental['username'];
 }
-
 $sql = "select * from user where username = '$username'";
 $query = mysqli_query($conn, $sql);
 $profile = mysqli_fetch_assoc($query);
@@ -78,77 +77,23 @@ require_once __DIR__ . '/vendor/autoload.php';
 include '__header.php';
 $mpdf = new \Mpdf\Mpdf();
 
-
-
 ?>
 <html>
 <body style="background: white;">
 <div class="container-fluid" style="margin-top: 30px;">
 
     <div class="container" style="margin-top: 10px;">
+        <div align="center">
+            <h2 class="font-weight-bold">ใบเสร็จรับเงิน</h2>
+            <h2 class="font-weight-bold">โรสรีสอร์ท</h2>
+            <h4 class="font-weight-bold">ที่ตั้ง <span class="font-weight-light">เลขที่ 133 หมู่ 2 ตำบลกำแพงแสน อำเภอกำแพงแสน จังหวัดนครปฐม 73140</span>
+            </h4>
+            <h4 class="font-weight-bold">เบอร์โทรศัพท์ <span class="font-weight-light">084-44514725</span></h4>
+        </div>
+
         <div class="card">
             <div class="card-body">
-                <h4 class="font-weight-bold">รายการจอง</h4> <?php echo $rental['rental_id'] ?>
-                <hr>
-                <div class="row">
-                    <div class="col-4">
-                    <span>
-                        <b>จองวันที่</b> : <?php echo $rental['rent_date'];  ?>
-                    </span>
-                    </div>
-                    <div class="col-8">
-                        <span>
-                            <b>ห้องที่จอง</b> : <?php echo $rental['room_id'] ?>
-                        </span>
-                    </div>
-                </div>
-                <br>
-                <div class="row">
-                    <div class="col-4">
-                    <span>
-                        <b>วันที่ Check In</b> : <?php echo $rental['check_in'] ?> <b>เวลา</b> : <?php echo $rental['check_in_time'] ?>
-                    </span>
-                    </div>
-                    <div class="col-4">
-                        <span>
-                            <b>วันที่ Check Out</b> : <?php echo $rental['check_out'] ?> <b>เวลา</b> : <?php echo $rental['check_out_time'] ?>
-                        </span>
-                    </div>
-                    <div class="col-4">
-                        <span>
-                            <b>รวม(วัน)</b> : <?php echo $rental['rent_days']." วัน ".($rental['rent_days']-1)." คืน" ?>
-                        </span>
-                    </div>
-                </div>
-                <br>
-                <div class="row">
-                    <div class="col-4">
-                        <span>
-                            <b>รวมราคา (บาท)</b> : <?php echo $rental['rent_cost'] ?>
-                        </span>
-                    </div>
-                    <div class="col-4">
-                    <span>
-                        <b>มัดจำ (บาท)</b> : <?php echo $rental['deposit'] ?>
-                    </span>
-                    </div>
-                    <div class="col-4">
-                    <span>
-                        <b>คงเหลือ (บาท)</b> : <?php echo $rental['rent_cost'] - $rental['deposit'] ?>
-                    </span>
-                    </div>
-                </div>
-<br>
-                <?php
-                if (isset($_GET['payment'])) {
-                    ?>
-                    <span>
-                        <b>ชำระเงินคงเหลือ (บาท)</b> : <?php echo $rental['rent_cost'] - $rental['deposit'] ?>
-                  </span>
-                    <?php
-                }
-                ?>
-                <br>
+                <h4 class="font-weight-bold">เลขที่ใบเสร็จ</h4> <?php echo $rental['rental_id'] ?> <b>วันที่</b> : <?php echo $rental['rent_date_txt']; ?>
                 <hr>
                 <h4 class="font-weight-bold">ข้อมูลผู้จอง</h4>
                 <hr>
@@ -168,34 +113,88 @@ $mpdf = new \Mpdf\Mpdf();
                         <b>เบอร์โทรศัพท์ : </b><?php echo $profile['tel']; ?>
                     </span>
                     </div>
+                    <div class="col-4">
+                    <span>
+                        <b>ที่อยู่ : </b><?php echo $profile['address']; ?>
+                    </span>
+                    </div>
                 </div>
-
-                <hr>
-
-
                 <br>
-
-                <div class="row">
-                    <div class="col-4 mx-auto">
-                        <div align="center">
-                            <img id="img-upload" src="img/scb-logo.jpg" width="200" border="5"></div>
-                    </div>
-
-                    <div class="col-6 mx-auto" align="left">
-                        <p><b>ช่องทางการชำระเงิน</b></p>
-                        <ul>
-                            <li>
-                                <small>เลขบัญชี ธนาคารไทยพานิช 401-990-1486 สาขาตลาดกำแพงแสน</small>
-                            </li>
-                            <li>
-                                <small>Prompt Pay : 081-1151415</small>
-                            </li>
-                            <li>
-                                <small>เลขบัญชี ธนาคารไทยพานิช 401-990-1486 สาขาตลาดกำแพงแสน</small>
-                            </li>
-                        </ul>
-                    </div>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th>รายการ</th>
+                            <th>ห้องที่จอง</th>
+                            <th>วันที่ Check In</th>
+                            <th>วันที่ Check Out</th>
+                            <th>จำนวนวันที่เข้าพัก</th>
+                            <th>ราคาต่อคืน (บาท)</th>
+                            <th>รวม (บาท)</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td><?php echo $rental['room_id'] ?></td>
+                            <td><?php echo $rental['check_in_txt'] ?> เวลา: <?php echo $rental['check_in_time'] ?></td>
+                            <td> <?php echo $rental['check_out_txt'] ?> เวลา: <?php echo $rental['check_out_time'] ?></td>
+                            <td><?php echo $rental['rent_days'] . " วัน " . ($rental['rent_days'] - 1) . " คืน" ?></td>
+                            <td><?php echo $rental['rent_cost']/$rental['rent_days'] ?></td>
+                            <td><?php echo $rental['rent_cost'] ?></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th colspan="6" class="text-right">ยอดชำระ</th>
+                            <td><?php echo $rental['rent_cost'] ?></td>
+                        </tr>
+                        <tr>
+                            <th colspan="6" class="text-right">ชำระแล้ว</th>
+                            <td><?php echo $rental['deposit'] ?></td>
+                        </tr>
+                        <tr>
+                            <th colspan="6" class="text-right">คงเหลือ</th>
+                            <td><?php echo $rental['rent_cost']-$rental['deposit'] ?></td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
+
                 <br>
                 <hr>
                 <br>
