@@ -93,7 +93,8 @@ $mpdf = new \Mpdf\Mpdf();
 
         <div class="card">
             <div class="card-body">
-                <h4 class="font-weight-bold">เลขที่ใบเสร็จ</h4> <?php echo $rental['rental_id'] ?> <b>วันที่</b> : <?php echo $rental['rent_date_txt']; ?>
+                <h4 class="font-weight-bold">เลขที่ใบเสร็จ <span class="font-weight-light"><?php echo $rental['rental_id'] ?></span></h4>  <b>วันที่</b>
+                : <?php echo $rental['rent_date_txt']; ?>
                 <hr>
                 <h4 class="font-weight-bold">ข้อมูลผู้จอง</h4>
                 <hr>
@@ -138,9 +139,10 @@ $mpdf = new \Mpdf\Mpdf();
                             <td>1</td>
                             <td><?php echo $rental['room_id'] ?></td>
                             <td><?php echo $rental['check_in_txt'] ?> เวลา: <?php echo $rental['check_in_time'] ?></td>
-                            <td> <?php echo $rental['check_out_txt'] ?> เวลา: <?php echo $rental['check_out_time'] ?></td>
+                            <td> <?php echo $rental['check_out_txt'] ?>
+                                เวลา: <?php echo $rental['check_out_time'] ?></td>
                             <td><?php echo $rental['rent_days'] . " วัน " . ($rental['rent_days'] - 1) . " คืน" ?></td>
-                            <td><?php echo $rental['rent_cost']/$rental['rent_days'] ?></td>
+                            <td><?php echo $rental['rent_cost'] / $rental['rent_days'] ?></td>
                             <td><?php echo $rental['rent_cost'] ?></td>
                         </tr>
                         <tr>
@@ -180,24 +182,24 @@ $mpdf = new \Mpdf\Mpdf();
                             <td></td>
                         </tr>
                         <tr>
-                            <th colspan="6" class="text-right">ยอดชำระ</th>
+                            <th colspan="6" class="text-right">ยอดชำระสุทธิ</th>
                             <td><?php echo $rental['rent_cost'] ?></td>
-                        </tr>
-                        <tr>
-                            <th colspan="6" class="text-right">ชำระแล้ว</th>
-                            <td><?php echo $rental['deposit'] ?></td>
-                        </tr>
-                        <tr>
-                            <th colspan="6" class="text-right">คงเหลือ</th>
-                            <td><?php echo $rental['rent_cost']-$rental['deposit'] ?></td>
                         </tr>
                         </tbody>
                     </table>
                 </div>
+                <div>
 
-                <br>
+                    <strong colspan="6" class="text-right">ยอดชำระสุทธิ</strong>
+                    <span><?php echo $rental['rent_cost'] ?> บาท</span>
+                    <br>
+                    <strong colspan="6" class="text-right">จำนวนที่ชำระ/มัดจำ</strong>
+                    <span><?php echo $rental['deposit'] ?> บาท</span>
+                    <br>
+                    <strong colspan="6" class="text-right">คงเหลือ</strong>
+                    <span><?php echo $rental['rent_cost'] - $rental['deposit'] ?> บาท</span>
+                </div>
                 <hr>
-                <br>
                 <div class="row">
                     <div class="col col-md col-lg col-sm text-center">
                         <strong>ลงชื่อ............................................................................ผู้ชำระเงิน</strong><br>

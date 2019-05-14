@@ -70,8 +70,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/__PDF_booking_cost.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="265">
-              <caret line="190" column="62" selection-start-line="190" selection-start-column="62" selection-end-line="190" selection-end-column="62" />
+            <state relative-caret-position="168">
+              <caret line="193" column="71" lean-forward="true" selection-start-line="193" selection-start-column="71" selection-end-line="193" selection-end-column="71" />
               <folding>
                 <element signature="n#convert#0;n#!!top" />
               </folding>
@@ -93,7 +93,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/_reserve_list_customer.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
+            <state relative-caret-position="1462">
               <caret line="86" column="184" selection-start-line="86" selection-start-column="184" selection-end-line="86" selection-end-column="184" />
             </state>
           </provider>
@@ -230,9 +230,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
+    <option name="x" value="-9" />
     <option name="width" value="865" />
-    <option name="height" value="1038" />
+    <option name="height" value="1039" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -334,14 +334,16 @@
       <workItem from="1557730920938" duration="31155000" />
       <workItem from="1557792349405" duration="169000" />
       <workItem from="1557836250424" duration="6580000" />
+      <workItem from="1557850233584" duration="870000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="212974000" />
+    <option name="totallyTimeSpent" value="213844000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.14979196" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -676,6 +678,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="das://707ad2b1-04b9-4264-afe5-9c10787b42ba/schema/rental/table/rental_detail">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true">
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_reserve_list_customer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1462">
+          <caret line="86" column="184" selection-start-line="86" selection-start-column="184" selection-end-line="86" selection-end-column="184" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/_checkOut.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2193">
@@ -714,26 +732,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_reserve_list_customer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="86" column="184" selection-start-line="86" selection-start-column="184" selection-end-line="86" selection-end-column="184" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://707ad2b1-04b9-4264-afe5-9c10787b42ba/schema/rental/table/rental_detail">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true">
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/__PDF_booking_cost.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="190" column="62" selection-start-line="190" selection-start-column="62" selection-end-line="190" selection-end-column="62" />
+        <state relative-caret-position="168">
+          <caret line="193" column="71" lean-forward="true" selection-start-line="193" selection-start-column="71" selection-end-line="193" selection-end-column="71" />
           <folding>
             <element signature="n#convert#0;n#!!top" />
           </folding>
